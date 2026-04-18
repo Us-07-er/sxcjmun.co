@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SXCJ MUN 2026</title>
+  <style>
+    body {margin:0; font-family: Georgia, serif; background:#f5f5f0; color:#111;}
+    nav {background:#111; padding:15px; text-align:center;}
+    nav a {color:#f5f5f0; margin:0 15px; text-decoration:none;}
+    header {text-align:center; padding:80px 20px;}
+    h1 {font-size:42px;}
+    section {padding:60px 20px; text-align:center;}
+    .box {display:inline-block; margin:10px; padding:20px; border:1px solid #aaa;}
+    .btn {background:#6b4f3b; color:white; padding:10px 20px; text-decoration:none;}
+    .fade {animation:fadeIn 1s ease;}
+    @keyframes fadeIn {from{opacity:0; transform:translateY(20px);} to{opacity:1;}}
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="committees.html">Committees</a>
+  <a href="secretariat.html">Secretariat</a>
+  <a href="register.html">Register</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<header class="fade">
+  <h1>SXCJ MUN 2026 (1st Edition)</h1>
+  <p><i>“Celebrating Dialogue, Diplomacy, and Global Citizenship”</i></p>
+  <p>15–16 May 2026 | St. Xavier's College, Jaipur</p>
+  <a class="btn">Registrations Opening Soon</a>
+</header>
+
+<section class="fade">
+  <h2>Conference Begins In</h2>
+  <div id="countdown"></div>
+</section>
+
+<section class="fade">
+  <h2>About</h2>
+  <p>SXCJ Model United Nations (SXCJ MUN) is a premier platform that brings together young minds to engage in meaningful dialogue, debate, and diplomacy.</p>
+  <a href="about.html">Read More</a>
+</section>
+
+<section class="fade">
+  <h2>Why Participate</h2>
+
+  <div class="box">
+    <h3>Leadership Skills</h3>
+    <p>Develop critical thinking, public speaking, and diplomacy.</p>
+  </div>
+
+  <div class="box">
+    <h3>Global Exposure</h3>
+    <p>Engage in meaningful debate and negotiation.</p>
+  </div>
+
+  <div class="box">
+    <h3>Confidence</h3>
+    <p>Think beyond boundaries and lead with clarity.</p>
+  </div>
+
+</section>
+
+<script>
+var countDownDate = new Date("May 15, 2026 00:00:00").getTime();
+var x = setInterval(function() {
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+
+  var days = Math.floor(distance / (1000*60*60*24));
+  var hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+  var minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+  var seconds = Math.floor((distance % (1000*60)) / 1000);
+
+  document.getElementById("countdown").innerHTML =
+  days+"d "+hours+"h "+minutes+"m "+seconds+"s";
+}, 1000);
+</script>
+
+</body>
+</html>
