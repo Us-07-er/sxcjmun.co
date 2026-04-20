@@ -10,8 +10,21 @@ body {
   font-family: 'Georgia', serif;
   background:#f4f1ea;
   color:#111;
+  margin:0;
+  font-family: 'Georgia', serif;
+  background: linear-gradient(180deg, #f4f1ea, #ebe7de);
+  color:#111;
 }
 
+body {
+  margin-left: 240px;
+  transition: margin-left 0.4s ease;
+}
+
+.sidebar.collapsed ~ body {
+  margin-left: 90px;
+}
+		
 nav {
   background:#111;
   padding:18px;
@@ -93,18 +106,18 @@ h2 {
 .btn:hover {
   background:#000;
 }
-
+		
 .fade {
-  opacity:0;
-  transform:translateY(30px);
-  transition:1s;
+  opacity: 0;
+  transform: translateY(50px) scale(0.98);
+  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .fade.visible {
-  opacity:1;
-  transform:translateY(0);
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
-
+		
 /* COUNTDOWN DESIGN */
 #countdown {
   display:flex;
@@ -172,13 +185,30 @@ h2 {
     padding: 15px;
   }
 
+  .time-box span {
+  display:block;
+  font-size:28px;
+  font-weight:bold;
+  transition: transform 0.3s ease;
+}
+
+.time-box:hover span {
+  transform: scale(1.2);
+}
+
   header {
     padding: 80px 15px;
   }
   
   .sidebar {
-    width: 70px;
-    padding: 20px 10px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 220px;
+  height: 100%;
+  background: #111;
+  padding: 40px 20px;
+  transition: all 0.4s ease; /* ADD THIS */
   }
 
   .sidebar .logo {
@@ -186,9 +216,15 @@ h2 {
     margin-bottom: 20px;
   }
 
+	.sidebar.collapsed {
+  width: 70px;
+  transition: all 0.4s ease;
+}
+
   .sidebar a {
     font-size: 12px;
     margin: 10px 0;
+	transition: all 0.3s ease;
   }
 
   body {
@@ -273,6 +309,51 @@ body {
 .sidebar.collapsed .logo {
   font-size: 12px;
 }
+
+/* GENERAL HOVER LIFT */
+.box, section, header {
+  transition: all 0.4s ease;
+}
+
+.box:hover {
+  transform: translateY(-10px) scale(1.02);
+}
+
+/* BUTTON ANIMATION */
+.btn {
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  letter-spacing: 1px;
+}
+
+/* NAV LINK SMOOTH FADE */
+.sidebar a {
+  opacity: 0.8;
+}
+
+.sidebar a:hover {
+  opacity: 1;
+  transform: translateX(5px);
+}
+
+body {
+  animation: pageLoad 0.8s ease;
+}
+
+@keyframes pageLoad {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+		
 </style>
 
 </head>
@@ -368,6 +449,12 @@ const sidebar = document.querySelector(".sidebar");
 
 btn.addEventListener("click", () => {
   sidebar.classList.toggle("collapsed");
+
+  if (sidebar.classList.contains("collapsed")) {
+    document.body.style.marginLeft = "90px";
+  } else {
+    document.body.style.marginLeft = "240px";
+  }
 });
 </script>
 </body>
