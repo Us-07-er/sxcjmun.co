@@ -15,15 +15,6 @@ body {
   background: linear-gradient(180deg, #f4f1ea, #ebe7de);
   color:#111;
 }
-
-body {
-  margin-left: 240px;
-  transition: margin-left 0.4s ease;
-}
-
-.sidebar.collapsed ~ body {
-  margin-left: 90px;
-}
 		
 nav {
   background:#111;
@@ -199,49 +190,57 @@ h2 {
   header {
     padding: 80px 15px;
   }
-  
+
   .sidebar {
   position: fixed;
-  left: 0;
   top: 0;
+  left: 0;
   width: 220px;
   height: 100%;
   background: #111;
   padding: 40px 20px;
-  transition: all 0.4s ease; /* ADD THIS */
-  }
 
+  transform: translateX(-100%);
+  transition: 0.4s ease;
+  z-index: 1000;
+}
+	
+.sidebar.active {
+  transform: translateX(0);
+}
+	
   .sidebar .logo {
     font-size: 14px;
     margin-bottom: 20px;
   }
 
-	.sidebar.collapsed {
-  width: 70px;
-  transition: all 0.4s ease;
-}
-
   .sidebar a {
-    font-size: 12px;
+	font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     margin: 10px 0;
 	transition: all 0.3s ease;
   }
-
-  body {
-    margin-left: 80px;
-  }
-
 }
 
 /* SIDEBAR */
 .sidebar {
   position: fixed;
-  left: 0;
   top: 0;
+  left: 0;
   width: 220px;
   height: 100%;
   background: #111;
   padding: 40px 20px;
+
+  transform: translateX(-100%);
+  transition: 0.3s ease;
+  z-index: 1000;
+}
+
+.sidebar.active {
+  transform: translateX(0);
 }
 
 .sidebar .logo {
@@ -256,6 +255,10 @@ h2 {
   text-decoration: none;
   position: relative;
   transition: 0.3s;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .sidebar a::after {
@@ -273,10 +276,6 @@ h2 {
   width: 100%;
 }
 
-body {
-  margin-left: 240px;
-}
-
 .sidebar a.active {
   color: #c2a47e;
   font-weight: bold;
@@ -292,22 +291,6 @@ body {
   border: none;
   padding: 10px;
   cursor: pointer;
-}
-
-.sidebar.collapsed {
-  width: 70px;
-}
-
-.sidebar.collapsed a {
-  font-size: 0;
-}
-
-.sidebar.collapsed a i {
-  font-size: 18px;
-}
-
-.sidebar.collapsed .logo {
-  font-size: 12px;
 }
 
 /* GENERAL HOVER LIFT */
@@ -378,8 +361,7 @@ h2:hover {
 
 <body>
 <button onclick="toggleSidebar()">☰</button>
-<nav>
- <div class="sidebar">
+  <div class="sidebar">
   <h2 class="logo">SXCJ</h2>
 
   <a href="index.html" class="active"><i class="fas fa-home"></i> Home</a>
@@ -389,6 +371,7 @@ h2:hover {
   <a href="register.html"><i class="fas fa-pen"></i> Register</a>
   <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
 </div>
+<nav>
 </nav>
 
 <header class="fade">
@@ -460,20 +443,10 @@ window.addEventListener('scroll', () => {
   });
 });
 </script>
-
 <script>
-const btn = document.getElementById("toggleBtn");
-const sidebar = document.querySelector(".sidebar");
-
-btn.addEventListener("click", () => {
-  sidebar.classList.toggle("collapsed");
-
-  if (sidebar.classList.contains("collapsed")) {
-    document.body.style.marginLeft = "90px";
-  } else {
-    document.body.style.marginLeft = "240px";
-  }
-});
+	function toggleSidebar() {
+  document.querySelector(".sidebar").classList.toggle("active");
+}
 </script>
 </body>
 </html>
