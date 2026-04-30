@@ -30,7 +30,6 @@ body {
   height: 100%;
   background: #111;
   padding: 40px 20px;
-
   transform: translateX(-100%);
   transition: 0.3s ease;
   z-index: 1000;
@@ -52,10 +51,6 @@ body {
   text-decoration: none;
   transition: 0.3s;
   font-size: 14px;
-
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   opacity: 0.8;
 }
 
@@ -101,34 +96,55 @@ body {
   pointer-events: all;
 }
 
-/* CONTENT */
+/* TITLE */
 h1 {
   margin-top: 100px;
   font-size: 48px;
 }
 
-.box {
-  border:1px solid #ccc;
-  padding:25px;
-  margin:20px;
-  display:inline-block;
-  width:250px;
-  background:#fff;
-  transition:0.4s;
+/* CONTAINER (VERTICAL CENTER ALIGN) */
+.committee-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  margin-top: 40px;
 }
 
-.box:hover {
-  transform:translateY(-10px) scale(1.02);
-  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+/* CARD DESIGN */
+.committee-card {
+  width: 85%;
+  max-width: 600px;
+  background: #fff;
+  padding: 25px;
+  border: 1px solid #ccc;
+  border-radius: 18px; /* CURVED EDGES */
+  transition: all 0.4s ease;
+}
+
+/* HOVER EFFECT */
+.committee-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+}
+
+/* TITLE + AGENDA */
+.committee-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.committee-agenda {
+  font-size: 15px;
+  color: #444;
 }
 
 /* MOBILE */
 @media (max-width:768px){
   h1 {font-size:32px;}
-  .box {
-    width:90%;
-    display:block;
-    margin:15px auto;
+  .committee-card {
+    width: 90%;
   }
 }
 </style>
@@ -153,12 +169,39 @@ h1 {
 
 <h1>Committees</h1>
 
-<div class="box">UNHRC – Agenda Coming Soon</div>
-<div class="box">WHO – Agenda Coming Soon</div>
-<div class="box">UNGA-DISEC – Agenda Coming Soon</div>
-<div class="box">Lok Sabha – Agenda Coming Soon</div>
-<div class="box">ICC – Agenda Coming Soon</div>
-<div class="box">International Press – Agenda Coming Soon</div>
+<div class="committee-container">
+
+  <div class="committee-card">
+    <div class="committee-title">UNHRC</div>
+    <div class="committee-agenda">Human Rights Protection in Global Conflict Zones</div>
+  </div>
+
+  <div class="committee-card">
+    <div class="committee-title">WHO</div>
+    <div class="committee-agenda">Global Health Security During International Crises</div>
+  </div>
+
+  <div class="committee-card">
+    <div class="committee-title">UNGA-DISEC</div>
+    <div class="committee-agenda">Disarmament and Security in Rising Global Tensions</div>
+  </div>
+
+  <div class="committee-card">
+    <div class="committee-title">Lok Sabha</div>
+    <div class="committee-agenda">India’s Role in Global Peace and Security</div>
+  </div>
+
+  <div class="committee-card">
+    <div class="committee-title">ICC</div>
+    <div class="committee-agenda">Accountability for War Crimes and Global Justice</div>
+  </div>
+
+  <div class="committee-card">
+    <div class="committee-title">International Press</div>
+    <div class="committee-agenda">Media, Misinformation, and Global Peace</div>
+  </div>
+
+</div>
 
 <script>
 function toggleSidebar() {
