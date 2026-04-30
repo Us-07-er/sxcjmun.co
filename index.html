@@ -15,6 +15,7 @@ body {
   background: linear-gradient(180deg, #f4f1ea, #ebe7de);
   color:#111;
   animation: pageLoad 0.8s ease;
+  scroll-behavior: smooth;
 }
 
 @keyframes pageLoad {
@@ -36,9 +37,7 @@ body {
   z-index:1000;
 }
 
-.sidebar.active {
-  transform: translateX(0);
-}
+.sidebar.active { transform: translateX(0); }
 
 .sidebar .logo {
   color:#f4f1ea;
@@ -56,7 +55,7 @@ body {
 
 .sidebar a:hover {
   opacity:1;
-  transform:translateX(5px);
+  transform:translateX(6px);
 }
 
 .sidebar a.active {
@@ -103,12 +102,9 @@ header {
   text-align:center;
   border-bottom:1px solid #ccc;
   border-radius:0 0 30px 30px;
-  transition:0.4s;
 }
 
-h1 {
-  font-size:48px;
-}
+h1 { font-size:48px; }
 
 /* SECTIONS */
 section {
@@ -124,15 +120,12 @@ section:hover {
   transform:translateY(-3px);
 }
 
-h2 {
-  font-size:32px;
-  margin-bottom:30px;
+  section p {
+  line-height: 1.7;
+  font-size: 15px;
+  opacity: 0.9;
 }
-
-h2:hover {
-  letter-spacing:1px;
-}
-
+  
 /* BUTTON */
 .btn {
   background:#6b4f3b;
@@ -147,7 +140,6 @@ h2:hover {
 
 .btn:hover {
   transform:translateY(-3px);
-  letter-spacing:1px;
   background:#000;
 }
 
@@ -164,18 +156,17 @@ h2:hover {
 }
 
 .box:hover {
-  transform:translateY(-10px) scale(1.02);
+  transform:translateY(-10px);
   box-shadow:0 10px 30px rgba(0,0,0,0.1);
 }
 
-/* WHY PARTICIPATE LAYOUT */
 .participate {
   display:flex;
   justify-content:center;
   flex-wrap:wrap;
 }
 
-/* COUNTDOWN GRID */
+/* COUNTDOWN */
 #countdown {
   display:grid;
   grid-template-columns: repeat(2, 120px);
@@ -194,12 +185,6 @@ h2:hover {
   justify-content:center;
   align-items:center;
   border-radius:14px;
-  transition:0.3s;
-}
-
-.time-box:hover {
-  transform:translateY(-6px) scale(1.05);
-  box-shadow:0 10px 25px rgba(0,0,0,0.1);
 }
 
 .time-box span {
@@ -207,12 +192,7 @@ h2:hover {
   font-weight:bold;
 }
 
-.label {
-  font-size:12px;
-  color:#555;
-}
-
-/* FADE ANIMATION */
+/* FADE */
 .fade {
   opacity:0;
   transform:translateY(50px);
@@ -224,122 +204,43 @@ h2:hover {
   transform:translateY(0);
 }
 
-/* MOBILE */
-@media (max-width:768px){
-
-  h1 {font-size:30px;}
-  h2 {font-size:24px;}
-
-  section {padding:60px 15px;}
-
-  .box {
-    width:90%;
-    margin:auto;
-    display:block;
-  }
-
-  #countdown {
-    grid-template-columns: repeat(2, 90px);
-  }
-
-  .time-box {
-    width:90px;
-    height:90px;
-  }
-}
-
-  .footer {
-  background: #0a0a0a;
-  color: #f4f1ea;
-  padding: 70px 10% 20px;
-  border-top: 2px solid transparent;
-  border-image: linear-gradient(to right, #8c52ff, #5ce1e6) 1;
+/* FOOTER */
+.footer {
+  background:#0a0a0a;
+  color:#f4f1ea;
+  padding:70px 10% 20px;
 }
 
 .footer-container {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 50px;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:40px;
 }
 
 .footer-col {
-  flex: 1;
-  min-width: 220px;
+  flex:1;
+  min-width:220px;
 }
 
-/* BRAND */
-.footer-col h2 {
-  font-size: 1.8rem;
-  margin-bottom: 10px;
-}
-
-.tagline {
-  font-size: 0.95rem;
-  opacity: 0.8;
-  font-style: italic;
-}
-
-/* HEADINGS */
-.footer-col h3 {
-  margin-bottom: 15px;
-  font-size: 1.1rem;
-}
-
-/* LINKS */
 .footer-col a {
-  display: block;
-  color: #f4f1ea;
-  text-decoration: none;
-  margin: 8px 0;
-  font-size: 0.9rem;
-  opacity: 0.8;
-  transition: 0.3s;
+  display:block;
+  color:#f4f1ea;
+  margin:8px 0;
+  text-decoration:none;
 }
 
 .footer-col a:hover {
-  opacity: 1;
-  color: #5ce1e6;
-  transform: translateX(6px);
+  color:#5ce1e6;
+  transform:translateX(5px);
 }
 
-/* CONTACT TEXT */
-.footer-col p {
-  font-size: 0.9rem;
-  margin: 8px 0;
-  opacity: 0.85;
-}
-
-.footer-col i {
-  margin-right: 8px;
-  color: #5ce1e6;
-}
-
-/* INSTAGRAM SPECIAL */
-.insta {
-  margin-top: 10px;
-}
-
-.insta:hover {
-  color: #8c52ff !important;
-}
-
-/* BOTTOM */
 .footer-bottom {
-  text-align: center;
-  margin-top: 50px;
-  font-size: 0.8rem;
-  opacity: 0.6;
+  text-align:center;
+  margin-top:40px;
+  opacity:0.6;
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .footer-container {
-    flex-direction: column;
-    gap: 30px;
-  }
-}
-  
 </style>
 </head>
 
@@ -347,22 +248,21 @@ h2:hover {
 
 <button id="toggleBtn" onclick="toggleSidebar()">☰</button>
 
-<div class="sidebar">
+<div class="sidebar" id="sidebar">
   <h2 class="logo">SXCJ</h2>
 
-  <a href="index.html" class="active"><i class="fas fa-home"></i> Home</a>
-  <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
-  <a href="committees.html"><i class="fas fa-users"></i> Committees</a>
-  <a href="secretariat.html"><i class="fas fa-user-tie"></i> Secretariat</a>
-  <a href="itinerary.html"><i class="fas fa-user-tie"></i> Itinerary</a>
-  <a href="register.html"><i class="fas fa-pen"></i> Register</a>
-  <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+  <a href="index.html" class="active">Home</a>
+  <a href="committees.html">Committees</a>
+  <a href="secretariat.html">Secretariat</a>
+  <a href="itinerary.html">Itinerary</a>
+  <a href="register.html">Register</a>
+  <a href="#footer">Contact</a>
 </div>
 
-<div class="overlay" onclick="toggleSidebar()"></div>
+<div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
 
 <header class="fade">
-  <h1>SXCJ MUN 2026 (1st Edition)</h1>
+  <h1>SXCJ MUN 2026</h1>
   <p><i>“Celebrating Dialogue, Diplomacy, and Global Citizenship”</i></p>
   <p>15–16 May 2026 | St. Xavier's College, Jaipur</p>
   <a class="btn">Registrations Opening Soon</a>
@@ -372,17 +272,29 @@ h2:hover {
   <h2>Conference Begins In</h2>
 
   <div id="countdown">
-    <div class="time-box"><span id="days">0</span><div class="label">DAYS</div></div>
-    <div class="time-box"><span id="hours">0</span><div class="label">HOURS</div></div>
-    <div class="time-box"><span id="minutes">0</span><div class="label">MINUTES</div></div>
-    <div class="time-box"><span id="seconds">0</span><div class="label">SECONDS</div></div>
+    <div class="time-box"><span id="days">0</span></div>
+    <div class="time-box"><span id="hours">0</span></div>
+    <div class="time-box"><span id="minutes">0</span></div>
+    <div class="time-box"><span id="seconds">0</span></div>
   </div>
 </section>
 
-<section class="fade">
-  <h2>About</h2>
-  <p>SXCJ Model United Nations (SXCJ MUN) is a premier platform that brings together young minds to engage in meaningful dialogue, debate, and diplomacy.</p>
-  <a href="about.html">Read More</a>
+  <section class="fade">
+  <h2>About SXCJ MUN</h2>
+
+  <p>
+    SXCJ Model United Nations (SXCJ MUN) is a dynamic platform that brings together
+    young minds to engage in meaningful dialogue, debate, and diplomacy. Rooted in the
+    spirit of global citizenship, the conference aims to simulate real-world international
+    relations while fostering critical thinking, negotiation, and leadership.
+  </p>
+
+  <p>
+    Over two days, delegates will collaborate, challenge perspectives, and craft
+    resolutions to some of the world’s most pressing issues — developing not just
+    solutions, but the confidence and clarity to lead beyond the committee room.
+  </p>
+
 </section>
 
 <section class="fade">
@@ -391,98 +303,56 @@ h2:hover {
   <div class="participate">
     <div class="box">
       <h3>Leadership Skills</h3>
-      <p>Develop critical thinking, public speaking, and diplomacy.</p>
+      <p>Develop critical thinking and diplomacy.</p>
     </div>
 
     <div class="box">
       <h3>Global Exposure</h3>
-      <p>Engage in meaningful debate and negotiation.</p>
+      <p>Engage in meaningful debate.</p>
     </div>
 
     <div class="box">
       <h3>Confidence</h3>
-      <p>Think beyond boundaries and lead with clarity.</p>
+      <p>Lead with clarity and conviction.</p>
     </div>
   </div>
-
 </section>
 
-  <footer class="footer">
-
+<footer class="footer" id="footer">
   <div class="footer-container">
 
-    <!-- BRAND -->
     <div class="footer-col">
       <h2>SXCJ MUN</h2>
-      <p class="tagline">“Celebrating Dialogue, Diplomacy, and Global Citizenship”</p>
+      <p>“Celebrating Dialogue, Diplomacy, and Global Citizenship”</p>
     </div>
 
-    <!-- QUICK LINKS -->
     <div class="footer-col">
       <h3>Quick Links</h3>
       <a href="index.html">Home</a>
-      <a href="about.html">About</a>
       <a href="committees.html">Committees</a>
       <a href="secretariat.html">Secretariat</a>
       <a href="itinerary.html">Itinerary</a>
       <a href="register.html">Register</a>
-      <a href="contact.html">Contact</a>
     </div>
 
-    <!-- CONTACT -->
     <div class="footer-col">
       <h3>Contact</h3>
-
-      <p><i class="fas fa-phone"></i> Ayushi: 8440059834</p>
-      <p><i class="fas fa-phone"></i> Rakshita: 8278626707</p>
-
-      <p><i class="fas fa-envelope"></i> mun.sxcj.edu.in@gmail.com</p>
-
-      <p><i class="fas fa-map-marker-alt"></i> St. Xavier’s College, Jaipur</p>
-
-      <a href="https://instagram.com/sxcj_mun" target="_blank" class="insta">
-        <i class="fab fa-instagram"></i> @sxcj_mun
-      </a>
+      <p>Ayushi: 8440059834</p>
+      <p>Rakshita: 8278626707</p>
+      <p>mun.sxcj.edu.in@gmail.com</p>
     </div>
 
   </div>
 
   <div class="footer-bottom">
-    <p>© 2026 SXCJ MUN. All Rights Reserved.</p>
+    <p>© 2026 SXCJ MUN</p>
   </div>
-
 </footer>
-  
-<script>
-var countDownDate = new Date("May 15, 2026 00:00:00").getTime();
-
-setInterval(function() {
-  var now = new Date().getTime();
-  var distance = countDownDate - now;
-
-  document.getElementById("days").innerHTML = Math.floor(distance / (1000*60*60*24));
-  document.getElementById("hours").innerHTML = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
-  document.getElementById("minutes").innerHTML = Math.floor((distance % (1000*60*60)) / (1000*60));
-  document.getElementById("seconds").innerHTML = Math.floor((distance % (1000*60)) / 1000);
-}, 1000);
-</script>
-
-<script>
-const elements = document.querySelectorAll('.fade');
-
-window.addEventListener('scroll', () => {
-  elements.forEach(el => {
-    if(el.getBoundingClientRect().top < window.innerHeight - 100){
-      el.classList.add('visible');
-    }
-  });
-});
-</script>
 
 <script>
 function toggleSidebar() {
-  document.querySelector(".sidebar").classList.toggle("active");
-  document.querySelector(".overlay").classList.toggle("active");
+  document.getElementById("sidebar").classList.toggle("active");
+  document.getElementById("overlay").classList.toggle("active");
 }
 </script>
 
