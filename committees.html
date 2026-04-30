@@ -116,28 +116,36 @@ h1 {
   width: 85%;
   max-width: 600px;
   background: #fff;
-  padding: 25px;
+  padding: 35px 30px; /* increased height via padding */
   border: 1px solid #ccc;
-  border-radius: 18px; /* CURVED EDGES */
+  border-radius: 18px;
   transition: all 0.4s ease;
+  min-height: 130px; /* ensures consistent taller cards */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-
+  
 /* HOVER EFFECT */
 .committee-card:hover {
   transform: translateY(-10px) scale(1.02);
   box-shadow: 0 15px 35px rgba(0,0,0,0.12);
 }
 
-/* TITLE + AGENDA */
+/* TITLE */
 .committee-title {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
 }
 
+/* AGENDA (UPDATED TYPOGRAPHY) */
 .committee-agenda {
-  font-size: 15px;
-  color: #444;
+  font-size: 17px;              /* increased size */
+  font-style: italic;           /* visual contrast */
+  color: #555;
+  line-height: 1.6;
 }
 
 /* MOBILE */
