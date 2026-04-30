@@ -12,15 +12,28 @@
 body {
   margin:0;
   font-family: 'Georgia', serif;
-  background: linear-gradient(180deg, #f4f1ea, #ebe7de);
-  color:#111;
-  animation: pageLoad 0.8s ease;
+  color:#fff;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
-@keyframes pageLoad {
-  from {opacity:0; transform:translateY(20px);}
-  to {opacity:1; transform:translateY(0);}
+/* BACKGROUND */
+.bg {
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: url('IMG-20260430-WA0004.jpg') center/cover no-repeat;
+  z-index:-2;
+  transform: scale(1.05);
+}
+
+.bg::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background: rgba(0,0,0,0.55);
 }
 
 /* SIDEBAR */
@@ -80,11 +93,8 @@ body {
 /* OVERLAY */
 .overlay {
   position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.4);
+  inset:0;
+  background:rgba(0,0,0,0.5);
   opacity:0;
   pointer-events:none;
   transition:0.3s;
@@ -98,34 +108,33 @@ body {
 
 /* HEADER */
 header {
-  padding:120px 20px;
+  padding:140px 20px;
   text-align:center;
-  border-bottom:1px solid #ccc;
-  border-radius:0 0 30px 30px;
 }
 
-h1 { font-size:48px; }
+h1 {
+  font-size:48px;
+  margin-bottom:10px;
+}
 
 /* SECTIONS */
 section {
   padding:100px 20px;
   max-width:900px;
   margin:auto;
-  border-bottom:1px solid #ddd;
-  border-radius:16px;
-  transition:0.4s;
+  border-bottom:1px solid rgba(255,255,255,0.1);
 }
 
-section:hover {
-  transform:translateY(-3px);
+h2 {
+  font-size:32px;
+  margin-bottom:25px;
 }
 
-  section p {
-  line-height: 1.7;
-  font-size: 15px;
-  opacity: 0.9;
+section p {
+  line-height:1.7;
+  opacity:0.9;
 }
-  
+
 /* BUTTON */
 .btn {
   background:#6b4f3b;
@@ -144,26 +153,26 @@ section:hover {
 }
 
 /* BOXES */
+.participate {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
 .box {
-  border:1px solid #ccc;
+  border:1px solid rgba(255,255,255,0.2);
   padding:25px;
   margin:15px;
   width:260px;
-  background:#fff;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter: blur(8px);
   border-radius:18px;
-  display:inline-block;
   transition:0.3s;
 }
 
 .box:hover {
   transform:translateY(-10px);
-  box-shadow:0 10px 30px rgba(0,0,0,0.1);
-}
-
-.participate {
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
+  box-shadow:0 10px 30px rgba(0,0,0,0.3);
 }
 
 /* COUNTDOWN */
@@ -172,12 +181,11 @@ section:hover {
   grid-template-columns: repeat(2, 120px);
   gap:20px;
   justify-content:center;
-  margin-top:30px;
 }
 
 .time-box {
-  background:#fff;
-  border:1px solid #ccc;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.2);
   width:120px;
   height:100px;
   display:flex;
@@ -195,7 +203,7 @@ section:hover {
 /* FADE */
 .fade {
   opacity:0;
-  transform:translateY(50px);
+  transform:translateY(40px);
   transition:0.8s;
 }
 
@@ -207,13 +215,11 @@ section:hover {
 /* FOOTER */
 .footer {
   background:#0a0a0a;
-  color:#f4f1ea;
   padding:70px 10% 20px;
 }
 
 .footer-container {
   display:flex;
-  justify-content:space-between;
   flex-wrap:wrap;
   gap:40px;
 }
@@ -225,7 +231,7 @@ section:hover {
 
 .footer-col a {
   display:block;
-  color:#f4f1ea;
+  color:#fff;
   margin:8px 0;
   text-decoration:none;
 }
@@ -241,10 +247,22 @@ section:hover {
   opacity:0.6;
 }
 
+/* MOBILE */
+@media (max-width:768px){
+  h1 {font-size:30px;}
+  h2 {font-size:24px;}
+
+  section {padding:60px 15px;}
+
+  .box {width:90%;}
+}
+
 </style>
 </head>
 
 <body>
+
+<div class="bg"></div>
 
 <button id="toggleBtn" onclick="toggleSidebar()">☰</button>
 
@@ -279,22 +297,19 @@ section:hover {
   </div>
 </section>
 
-  <section class="fade">
+<section class="fade">
   <h2>About SXCJ MUN</h2>
 
   <p>
-    SXCJ Model United Nations (SXCJ MUN) is a dynamic platform that brings together
-    young minds to engage in meaningful dialogue, debate, and diplomacy. Rooted in the
-    spirit of global citizenship, the conference aims to simulate real-world international
-    relations while fostering critical thinking, negotiation, and leadership.
+    SXCJ Model United Nations is a platform where dialogue meets diplomacy.
+    Delegates engage in global issues, develop negotiation skills, and learn
+    leadership through simulation of international relations.
   </p>
 
   <p>
-    Over two days, delegates will collaborate, challenge perspectives, and craft
-    resolutions to some of the world’s most pressing issues — developing not just
-    solutions, but the confidence and clarity to lead beyond the committee room.
+    Over two days, participants debate, collaborate, and craft solutions
+    — building confidence and perspective that extends beyond the committee room.
   </p>
-
 </section>
 
 <section class="fade">
@@ -350,10 +365,45 @@ section:hover {
 </footer>
 
 <script>
+/* SIDEBAR */
 function toggleSidebar() {
   document.getElementById("sidebar").classList.toggle("active");
   document.getElementById("overlay").classList.toggle("active");
 }
+
+/* FADE FIX */
+const elements = document.querySelectorAll('.fade');
+
+function checkFade() {
+  elements.forEach(el => {
+    if(el.getBoundingClientRect().top < window.innerHeight - 100){
+      el.classList.add('visible');
+    }
+  });
+}
+
+window.addEventListener('scroll', checkFade);
+window.addEventListener('load', checkFade);
+
+/* COUNTDOWN */
+var countDownDate = new Date("May 15, 2026 00:00:00").getTime();
+
+setInterval(function() {
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+
+  document.getElementById("days").innerHTML = Math.floor(distance / (1000*60*60*24));
+  document.getElementById("hours").innerHTML = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+  document.getElementById("minutes").innerHTML = Math.floor((distance % (1000*60*60)) / (1000*60));
+  document.getElementById("seconds").innerHTML = Math.floor((distance % (1000*60)) / 1000);
+}, 1000);
+
+/* PARALLAX */
+window.addEventListener("scroll", () => {
+  const scrollY = window.scrollY;
+  document.querySelector(".bg").style.transform =
+    `translateY(${scrollY * 0.3}px) scale(1.05)`;
+});
 </script>
 
 </body>
