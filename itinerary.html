@@ -1,273 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Itinerary - SXCJMUN</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Itinerary - SXCJMUN</title>
 
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-        }
+<style>
 
-        .itinerary-hero {
-            text-align: center;
-            padding: 100px 20px 50px;
-        }
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
 
-        .itinerary-hero h1 {
-            font-size: 3rem;
-            letter-spacing: 2px;
-        }
+/* HERO */
+.itinerary-hero {
+    text-align: center;
+    padding: 100px 20px 60px;
+}
 
-        .timeline-section {
-            padding: 60px 10%;
-        }
+.itinerary-hero h1 {
+    font-size: 3rem;
+    letter-spacing: 2px;
+}
 
-        .timeline-section h2 {
-            font-size: 2rem;
-            margin-bottom: 40px;
-            text-align: center;
-        }
+/* SECTION */
+.section {
+    padding: 80px 10%;
+}
 
-        .timeline {
-            position: relative;
-            margin: auto;
-            max-width: 900px;
-        }
+.section:nth-child(even) {
+    background: #0f0f0f;
+}
 
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 3px;
-            background: #ccc;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-        }
+.section h2 {
+    text-align: center;
+    font-size: 2.3rem;
+    margin-bottom: 50px;
+}
 
-        .timeline-item {
-            padding: 20px 40px;
-            position: relative;
-            width: 50%;
-        }
+/* CARDS */
+.schedule {
+    max-width: 900px;
+    margin: auto;
+}
 
-        .timeline-item.left {
-            left: 0;
-        }
+.card {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    margin-bottom: 18px;
+    border-radius: 12px;
+    background: #111;
+    transition: 0.3s ease;
+    border: 1px solid transparent;
+}
 
-        .timeline-item.right {
-            left: 50%;
-        }
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #5ce1e6;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
 
-        .timeline-content {
-            background: #111;
-            color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-        }
+/* TIME */
+.time {
+    min-width: 90px;
+    font-weight: bold;
+    color: #5ce1e6;
+}
 
-        .timeline-content h3 {
-            margin: 0;
-            font-size: 1.2rem;
-        }
+/* CONTENT */
+.details h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
 
-        .timeline-content p {
-            margin: 8px 0 0;
-            font-size: 0.95rem;
-            opacity: 0.8;
-        }
+.details p {
+    margin: 5px 0 0;
+    font-size: 0.95rem;
+    opacity: 0.8;
+}
 
-        .time {
-            font-weight: bold;
-            color: #5ce1e6;
-            margin-bottom: 5px;
-        }
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .card {
+        flex-direction: column;
+    }
 
-        /* Dots */
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            width: 15px;
-            height: 15px;
-            right: -8px;
-            background: #5ce1e6;
-            border-radius: 50%;
-            top: 25px;
-            z-index: 1;
-        }
+    .time {
+        margin-bottom: 5px;
+    }
+}
 
-        .timeline-item.right::before {
-            left: -8px;
-        }
-
-        /* Responsive */
-        @media screen and (max-width: 768px) {
-
-            .timeline::after {
-                left: 20px;
-            }
-
-            .timeline-item {
-                width: 100%;
-                padding-left: 60px;
-                padding-right: 20px;
-            }
-
-            .timeline-item.right {
-                left: 0;
-            }
-
-            .timeline-item::before {
-                left: 12px;
-            }
-        }
-    </style>
+</style>
 </head>
 
 <body>
 
-<!-- NAVBAR (PASTE YOUR EXISTING ONE HERE) -->
-
+<!-- NAVBAR -->
 
 <section class="itinerary-hero">
     <h1>Event Itinerary</h1>
 </section>
 
 <!-- DAY 1 -->
-<section class="timeline-section">
-    <h2>Day 1 — May 15, 2026</h2>
+<section class="section">
+<h2>Day 1 — May 15, 2026</h2>
 
-    <div class="timeline">
+<div class="schedule">
 
-        <div class="timeline-item left">
-            <div class="timeline-content">
-                <div class="time">8:00 AM</div>
-                <h3>Venue Setup</h3>
-                <p>Secretariat arrives, room setup, AV check, registration desk</p>
-            </div>
-        </div>
+<div class="card"><div class="time">8:00 AM</div><div class="details"><h3>Venue Setup</h3><p>Secretariat arrives, arrange rooms, AV check, registration desk setup</p></div></div>
 
-        <div class="timeline-item right">
-            <div class="timeline-content">
-                <div class="time">9:00 AM</div>
-                <h3>Delegate Registration</h3>
-                <p>Badges, kits, placards distribution</p>
-            </div>
-        </div>
+<div class="card"><div class="time">9:00 AM</div><div class="details"><h3>Delegate Registration</h3><p>Delegates collect badges, kits, placards</p></div></div>
 
-        <div class="timeline-item left">
-            <div class="timeline-content">
-                <div class="time">9:30 AM</div>
-                <h3>Opening Ceremony</h3>
-                <p>SG address → Guest speech → Theme → March</p>
-            </div>
-        </div>
+<div class="card"><div class="time">9:30 AM</div><div class="details"><h3>Opening Ceremony</h3><p>SG address → Guest speech → Theme presentation → March to rooms</p></div></div>
 
-        <div class="timeline-item right">
-            <div class="timeline-content">
-                <div class="time">10:40 AM</div>
-                <h3>Committee Session I</h3>
-                <p>Roll call, speakers list, general debate</p>
-            </div>
-        </div>
+<div class="card"><div class="time">10:40 AM</div><div class="details"><h3>Committee Session I</h3><p>Roll call → Speakers list → General debate → 2 min speeches</p></div></div>
 
-        <div class="timeline-item left">
-            <div class="timeline-content">
-                <div class="time">12:15 PM</div>
-                <h3>Lunch Break</h3>
-                <p>IP works on newspaper draft</p>
-            </div>
-        </div>
+<div class="card"><div class="time">12:15 PM</div><div class="details"><h3>Lunch Break</h3><p>45 mins. IP works on newspaper draft</p></div></div>
 
-        <div class="timeline-item right">
-            <div class="timeline-content">
-                <div class="time">1:00 PM</div>
-                <h3>Committee Session II</h3>
-                <p>Unmod caucus, bloc formation, working papers</p>
-            </div>
-        </div>
+<div class="card"><div class="time">1:00 PM</div><div class="details"><h3>Committee Session II</h3><p>Unmoderated caucus → Bloc formation → Draft working papers</p></div></div>
 
-        <div class="timeline-item left">
-            <div class="timeline-content">
-                <div class="time">2:45 PM</div>
-                <h3>Tea Break</h3>
-            </div>
-        </div>
+<div class="card"><div class="time">2:45 PM</div><div class="details"><h3>Tea Break</h3><p>15 mins</p></div></div>
 
-        <div class="timeline-item right">
-            <div class="timeline-content">
-                <div class="time">3:00 PM</div>
-                <h3>Committee Session III</h3>
-                <p>Clause debate, amendments</p>
-            </div>
-        </div>
+<div class="card"><div class="time">3:00 PM</div><div class="details"><h3>Committee Session III</h3><p>Working papers presented → Clause debate → Amendments</p></div></div>
 
-        <div class="timeline-item left">
-            <div class="timeline-content">
-                <div class="time">4:45 PM</div>
-                <h3>Wrap Up</h3>
-                <p>Chairs summary, IP Issue 1</p>
-            </div>
-        </div>
+<div class="card"><div class="time">4:45 PM</div><div class="details"><h3>Day 1 Wrap Up</h3><p>Chairs summarise progress. IP Issue 1 distributed</p></div></div>
 
-        <div class="timeline-item right">
-            <div class="timeline-content">
-                <div class="time">5:00 PM</div>
-                <h3>Day Close</h3>
-            </div>
-        </div>
+<div class="card"><div class="time">5:00 PM</div><div class="details"><h3>Day 1 Close</h3><p>Delegates dismissed. Secretariat debrief</p></div></div>
 
-    </div>
+</div>
 </section>
 
 <!-- OPENING CEREMONY -->
-<section class="timeline-section">
-    <h2>Opening Ceremony</h2>
-    <div class="timeline">
+<section class="section">
+<h2>Opening Ceremony</h2>
 
-        <div class="timeline-item left"><div class="timeline-content"><div class="time">9:00 AM</div><h3>Welcome</h3></div></div>
-        <div class="timeline-item right"><div class="timeline-content"><div class="time">9:03 AM</div><h3>Lighting of Lamp</h3></div></div>
-        <div class="timeline-item left"><div class="timeline-content"><div class="time">9:06 AM</div><h3>Address by Director</h3></div></div>
-        <div class="timeline-item right"><div class="timeline-content"><div class="time">9:11 AM</div><h3>Theme Presentation</h3></div></div>
-        <div class="timeline-item left"><div class="timeline-content"><div class="time">9:30 AM</div><h3>Dance</h3></div></div>
-        <div class="timeline-item right"><div class="timeline-content"><div class="time">10:30 AM</div><h3>MUN Oath</h3></div></div>
+<div class="schedule">
 
-    </div>
+<div class="card"><div class="time">9:00 AM</div><div class="details"><h3>Welcome & Introduction</h3></div></div>
+<div class="card"><div class="time">9:03 AM</div><div class="details"><h3>Lighting of Lamp</h3></div></div>
+<div class="card"><div class="time">9:06 AM</div><div class="details"><h3>Address by Dr. Arokya Swami SJ</h3></div></div>
+<div class="card"><div class="time">9:11 AM</div><div class="details"><h3>Theme Presentation</h3></div></div>
+<div class="card"><div class="time">9:16 AM</div><div class="details"><h3>Committee Overview</h3></div></div>
+<div class="card"><div class="time">9:21 AM</div><div class="details"><h3>Rules and Regulations</h3></div></div>
+<div class="card"><div class="time">9:30 AM</div><div class="details"><h3>Dance</h3></div></div>
+<div class="card"><div class="time">9:35 AM</div><div class="details"><h3>Chief Guest Address</h3></div></div>
+<div class="card"><div class="time">9:40 AM</div><div class="details"><h3>Skit</h3></div></div>
+<div class="card"><div class="time">9:45 AM</div><div class="details"><h3>Panel Discussion</h3></div></div>
+<div class="card"><div class="time">10:30 AM</div><div class="details"><h3>MUN Oath for Delegates</h3></div></div>
+<div class="card"><div class="time">10:32 AM</div><div class="details"><h3>National Anthem</h3></div></div>
+<div class="card"><div class="time">10:34 AM</div><div class="details"><h3>Vote of Thanks</h3></div></div>
+
+</div>
 </section>
 
 <!-- DAY 2 -->
-<section class="timeline-section">
-    <h2>Day 2 — May 16, 2026</h2>
-    <div class="timeline">
+<section class="section">
+<h2>Day 2 — May 16, 2026</h2>
 
-        <div class="timeline-item left"><div class="timeline-content"><div class="time">8:30 AM</div><h3>Setup</h3></div></div>
-        <div class="timeline-item right"><div class="timeline-content"><div class="time">9:15 AM</div><h3>Session IV</h3></div></div>
-        <div class="timeline-item left"><div class="timeline-content"><div class="time">11:15 AM</div><h3>Session V</h3></div></div>
-        <div class="timeline-item right"><div class="timeline-content"><div class="time">1:45 PM</div><h3>Session VI</h3></div></div>
-        <div class="timeline-item left"><div class="timeline-content"><div class="time">3:30 PM</div><h3>Closing Ceremony</h3></div></div>
+<div class="schedule">
 
-    </div>
+<div class="card"><div class="time">8:30 AM</div><div class="details"><h3>Venue Setup</h3><p>Quick setup, AV check, arrange rooms</p></div></div>
+
+<div class="card"><div class="time">9:00 AM</div><div class="details"><h3>Delegate Arrival</h3><p>Attendance, collect overnight working papers</p></div></div>
+
+<div class="card"><div class="time">9:15 AM</div><div class="details"><h3>Committee Session IV</h3><p>Draft resolutions → Preamble → Operative clauses</p></div></div>
+
+<div class="card"><div class="time">11:00 AM</div><div class="details"><h3>Tea Break</h3><p>IP finalises Issue 2</p></div></div>
+
+<div class="card"><div class="time">11:15 AM</div><div class="details"><h3>Committee Session V</h3><p>Final amendments → Voting procedure</p></div></div>
+
+<div class="card"><div class="time">1:00 PM</div><div class="details"><h3>Lunch Break</h3><p>Directorate finalises awards. IP to print</p></div></div>
+
+<div class="card"><div class="time">1:45 PM</div><div class="details"><h3>Committee Session VI</h3><p>Final voting, ICC judgement, conclusions</p></div></div>
+
+<div class="card"><div class="time">3:15 PM</div><div class="details"><h3>Closing Committee Sessions</h3><p>Chairs closing remarks</p></div></div>
+
+<div class="card"><div class="time">3:30 PM</div><div class="details"><h3>Closing Ceremony</h3><p>Awards, Best Delegate, IP awards, group photo</p></div></div>
+
+<div class="card"><div class="time">4:30 PM</div><div class="details"><h3>Cultural Evening</h3><p>Celebration, farewell, food</p></div></div>
+
+<div class="card"><div class="time">5:00 PM</div><div class="details"><h3>Day 2 Close</h3><p>Wrap up</p></div></div>
+
+</div>
 </section>
 
 <!-- CLOSING CEREMONY -->
-<section class="timeline-section">
-    <h2>Closing Ceremony</h2>
-    <div class="timeline">
+<section class="section">
+<h2>Closing Ceremony</h2>
 
-        <div class="timeline-item left"><div class="timeline-content"><div class="time">3:30 PM</div><h3>Welcome</h3></div></div>
-        <div class="timeline-item right"><div class="timeline-content"><div class="time">3:48 PM</div><h3>Certificates</h3></div></div>
-        <div class="timeline-item left"><div class="timeline-content"><div class="time">4:13 PM</div><h3>Awards</h3></div></div>
-        <div class="timeline-item right"><div class="timeline-content"><div class="time">4:33 PM</div><h3>Group Photo</h3></div></div>
+<div class="schedule">
 
-    </div>
+<div class="card"><div class="time">3:30 PM</div><div class="details"><h3>Welcome & Anchoring</h3></div></div>
+<div class="card"><div class="time">3:33 PM</div><div class="details"><h3>Secretary-General Address</h3></div></div>
+<div class="card"><div class="time">3:38 PM</div><div class="details"><h3>Guest Address</h3></div></div>
+<div class="card"><div class="time">3:43 PM</div><div class="details"><h3>Core Council Appreciation</h3></div></div>
+<div class="card"><div class="time">3:48 PM</div><div class="details"><h3>Certificate Distribution</h3></div></div>
+<div class="card"><div class="time">3:58 PM</div><div class="details"><h3>Committee Highlights</h3></div></div>
+<div class="card"><div class="time">4:08 PM</div><div class="details"><h3>IP Showcase</h3></div></div>
+<div class="card"><div class="time">4:13 PM</div><div class="details"><h3>Awards Announcement</h3></div></div>
+<div class="card"><div class="time">4:25 PM</div><div class="details"><h3>Best Delegate</h3></div></div>
+<div class="card"><div class="time">4:28 PM</div><div class="details"><h3>Vote of Thanks</h3></div></div>
+<div class="card"><div class="time">4:31 PM</div><div class="details"><h3>National Anthem</h3></div></div>
+<div class="card"><div class="time">4:33 PM</div><div class="details"><h3>Group Photograph</h3></div></div>
+
+</div>
 </section>
 
-<!-- FOOTER (PASTE YOUR EXISTING ONE HERE) -->
+<!-- FOOTER -->
 
 </body>
 </html>
