@@ -7,6 +7,9 @@
 
 <link rel="stylesheet" href="style.css">
 
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
 <style>
 
 body {
@@ -22,7 +25,6 @@ body {
 
 .itinerary-hero h1 {
     font-size: 3rem;
-    letter-spacing: 2px;
 }
 
 /* SECTION */
@@ -30,8 +32,14 @@ body {
     padding: 80px 10%;
 }
 
-.section:nth-child(even) {
-    background: #0f0f0f;
+.section.light {
+    background: #ffffff;
+    color: #111;
+}
+
+.section.dark {
+    background: #0a0a0a;
+    color: #ffffff;
 }
 
 .section h2 {
@@ -40,7 +48,7 @@ body {
     margin-bottom: 50px;
 }
 
-/* CARDS */
+/* SCHEDULE */
 .schedule {
     max-width: 900px;
     margin: auto;
@@ -49,18 +57,24 @@ body {
 .card {
     display: flex;
     gap: 20px;
-    padding: 20px;
-    margin-bottom: 18px;
-    border-radius: 12px;
-    background: #111;
-    transition: 0.3s ease;
-    border: 1px solid transparent;
+    padding: 18px 20px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    transition: 0.25s ease;
+}
+
+/* adaptive card colors */
+.section.light .card {
+    background: #f2f2f2;
+}
+
+.section.dark .card {
+    background: #1a1a1a;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    border-color: #5ce1e6;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transform: translateY(-4px);
+    border-left: 4px solid #5ce1e6;
 }
 
 /* TIME */
@@ -70,26 +84,23 @@ body {
     color: #5ce1e6;
 }
 
-/* CONTENT */
+/* DETAILS */
 .details h3 {
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
 }
 
 .details p {
     margin: 5px 0 0;
     font-size: 0.95rem;
-    opacity: 0.8;
+    font-style: italic;
+    opacity: 0.85;
 }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
     .card {
         flex-direction: column;
-    }
-
-    .time {
-        margin-bottom: 5px;
     }
 }
 
@@ -98,45 +109,50 @@ body {
 
 <body>
 
-<!-- NAVBAR -->
+<!-- ✅ YOUR SIDEBAR (UNCHANGED) -->
+<button id="toggleBtn" onclick="toggleSidebar()">☰</button>
 
+<div class="sidebar">
+  <h2 class="logo">SXCJ</h2>
+
+  <a href="index.html"><i class="fas fa-home"></i> Home</a>
+  <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+  <a href="committees.html"><i class="fas fa-users"></i> Committees</a>
+  <a href="secretariat.html"><i class="fas fa-user-tie"></i> Secretariat</a>
+  <a href="itinerary.html" class="active"><i class="fas fa-user-tie"></i> Itinerary</a>
+  <a href="register.html"><i class="fas fa-pen"></i> Register</a>
+  <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+</div>
+
+<div class="overlay" onclick="toggleSidebar()"></div>
+
+<!-- HERO -->
 <section class="itinerary-hero">
     <h1>Event Itinerary</h1>
 </section>
 
 <!-- DAY 1 -->
-<section class="section">
+<section class="section light">
 <h2>Day 1 — May 15, 2026</h2>
-
 <div class="schedule">
 
 <div class="card"><div class="time">8:00 AM</div><div class="details"><h3>Venue Setup</h3><p>Secretariat arrives, arrange rooms, AV check, registration desk setup</p></div></div>
-
 <div class="card"><div class="time">9:00 AM</div><div class="details"><h3>Delegate Registration</h3><p>Delegates collect badges, kits, placards</p></div></div>
-
 <div class="card"><div class="time">9:30 AM</div><div class="details"><h3>Opening Ceremony</h3><p>SG address → Guest speech → Theme presentation → March to rooms</p></div></div>
-
 <div class="card"><div class="time">10:40 AM</div><div class="details"><h3>Committee Session I</h3><p>Roll call → Speakers list → General debate → 2 min speeches</p></div></div>
-
 <div class="card"><div class="time">12:15 PM</div><div class="details"><h3>Lunch Break</h3><p>45 mins. IP works on newspaper draft</p></div></div>
-
 <div class="card"><div class="time">1:00 PM</div><div class="details"><h3>Committee Session II</h3><p>Unmoderated caucus → Bloc formation → Draft working papers</p></div></div>
-
 <div class="card"><div class="time">2:45 PM</div><div class="details"><h3>Tea Break</h3><p>15 mins</p></div></div>
-
 <div class="card"><div class="time">3:00 PM</div><div class="details"><h3>Committee Session III</h3><p>Working papers presented → Clause debate → Amendments</p></div></div>
-
 <div class="card"><div class="time">4:45 PM</div><div class="details"><h3>Day 1 Wrap Up</h3><p>Chairs summarise progress. IP Issue 1 distributed</p></div></div>
-
 <div class="card"><div class="time">5:00 PM</div><div class="details"><h3>Day 1 Close</h3><p>Delegates dismissed. Secretariat debrief</p></div></div>
 
 </div>
 </section>
 
 <!-- OPENING CEREMONY -->
-<section class="section">
+<section class="section dark">
 <h2>Opening Ceremony</h2>
-
 <div class="schedule">
 
 <div class="card"><div class="time">9:00 AM</div><div class="details"><h3>Welcome & Introduction</h3></div></div>
@@ -157,49 +173,37 @@ body {
 </section>
 
 <!-- DAY 2 -->
-<section class="section">
+<section class="section light">
 <h2>Day 2 — May 16, 2026</h2>
-
 <div class="schedule">
 
 <div class="card"><div class="time">8:30 AM</div><div class="details"><h3>Venue Setup</h3><p>Quick setup, AV check, arrange rooms</p></div></div>
-
 <div class="card"><div class="time">9:00 AM</div><div class="details"><h3>Delegate Arrival</h3><p>Attendance, collect overnight working papers</p></div></div>
-
-<div class="card"><div class="time">9:15 AM</div><div class="details"><h3>Committee Session IV</h3><p>Draft resolutions → Preamble → Operative clauses</p></div></div>
-
-<div class="card"><div class="time">11:00 AM</div><div class="details"><h3>Tea Break</h3><p>IP finalises Issue 2</p></div></div>
-
-<div class="card"><div class="time">11:15 AM</div><div class="details"><h3>Committee Session V</h3><p>Final amendments → Voting procedure</p></div></div>
-
-<div class="card"><div class="time">1:00 PM</div><div class="details"><h3>Lunch Break</h3><p>Directorate finalises awards. IP to print</p></div></div>
-
-<div class="card"><div class="time">1:45 PM</div><div class="details"><h3>Committee Session VI</h3><p>Final voting, ICC judgement, conclusions</p></div></div>
-
-<div class="card"><div class="time">3:15 PM</div><div class="details"><h3>Closing Committee Sessions</h3><p>Chairs closing remarks</p></div></div>
-
-<div class="card"><div class="time">3:30 PM</div><div class="details"><h3>Closing Ceremony</h3><p>Awards, Best Delegate, IP awards, group photo</p></div></div>
-
-<div class="card"><div class="time">4:30 PM</div><div class="details"><h3>Cultural Evening</h3><p>Celebration, farewell, food</p></div></div>
-
+<div class="card"><div class="time">9:15 AM</div><div class="details"><h3>Committee Session IV</h3><p>Draft resolutions → Preamble finalised → Operative clauses debated</p></div></div>
+<div class="card"><div class="time">11:00 AM</div><div class="details"><h3>Tea Break</h3><p>15 mins. IP finalises Issue 2</p></div></div>
+<div class="card"><div class="time">11:15 AM</div><div class="details"><h3>Committee Session V</h3><p>Final amendments → Motion to close debate → Voting procedure</p></div></div>
+<div class="card"><div class="time">1:00 PM</div><div class="details"><h3>Lunch Break</h3><p>Directorate finalises awards. IP goes to print</p></div></div>
+<div class="card"><div class="time">1:45 PM</div><div class="details"><h3>Committee Session VI</h3><p>Lok Sabha final vote → ICC judgement delivered → Remaining committees conclude</p></div></div>
+<div class="card"><div class="time">3:15 PM</div><div class="details"><h3>Closing Committee Sessions</h3><p>Chairs deliver closing remarks. Final gavel</p></div></div>
+<div class="card"><div class="time">3:30 PM</div><div class="details"><h3>Closing Ceremony</h3><p>Awards, Best Delegate, IP Awards, group photo</p></div></div>
+<div class="card"><div class="time">4:30 PM</div><div class="details"><h3>Cultural Evening</h3><p>Celebration, informal farewell, food</p></div></div>
 <div class="card"><div class="time">5:00 PM</div><div class="details"><h3>Day 2 Close</h3><p>Wrap up</p></div></div>
 
 </div>
 </section>
 
 <!-- CLOSING CEREMONY -->
-<section class="section">
+<section class="section dark">
 <h2>Closing Ceremony</h2>
-
 <div class="schedule">
 
 <div class="card"><div class="time">3:30 PM</div><div class="details"><h3>Welcome & Anchoring</h3></div></div>
-<div class="card"><div class="time">3:33 PM</div><div class="details"><h3>Secretary-General Address</h3></div></div>
+<div class="card"><div class="time">3:33 PM</div><div class="details"><h3>Address by Secretary-General</h3></div></div>
 <div class="card"><div class="time">3:38 PM</div><div class="details"><h3>Guest Address</h3></div></div>
 <div class="card"><div class="time">3:43 PM</div><div class="details"><h3>Core Council Appreciation</h3></div></div>
 <div class="card"><div class="time">3:48 PM</div><div class="details"><h3>Certificate Distribution</h3></div></div>
 <div class="card"><div class="time">3:58 PM</div><div class="details"><h3>Committee Highlights</h3></div></div>
-<div class="card"><div class="time">4:08 PM</div><div class="details"><h3>IP Showcase</h3></div></div>
+<div class="card"><div class="time">4:08 PM</div><div class="details"><h3>IP Newspaper Showcase</h3></div></div>
 <div class="card"><div class="time">4:13 PM</div><div class="details"><h3>Awards Announcement</h3></div></div>
 <div class="card"><div class="time">4:25 PM</div><div class="details"><h3>Best Delegate</h3></div></div>
 <div class="card"><div class="time">4:28 PM</div><div class="details"><h3>Vote of Thanks</h3></div></div>
@@ -209,7 +213,8 @@ body {
 </div>
 </section>
 
-<!-- FOOTER -->
+<!-- REQUIRED JS -->
+<script src="script.js"></script>
 
 </body>
 </html>
