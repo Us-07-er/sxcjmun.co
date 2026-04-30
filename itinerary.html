@@ -97,6 +97,68 @@ body {
     opacity: 0.85;
 }
 
+/* SIDEBAR (CLEAN MOBILE FRIENDLY) */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100%;
+  background: #111;
+  padding: 40px 20px;
+
+  transform: translateX(-100%);
+  transition: 0.3s ease;
+  z-index: 1000;
+}
+
+.sidebar.active {
+  transform: translateX(0);
+}
+
+.sidebar .logo {
+  color: #f4f1ea;
+  margin-bottom: 40px;
+}
+
+.sidebar a {
+  display: block;
+  color: #f4f1ea;
+  margin: 15px 0;
+  text-decoration: none;
+  font-size: 14px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  opacity: 1;
+  transform: translateX(5px);
+}
+
+.sidebar a.active {
+  color:#c2a47e;
+  font-weight:bold;
+}
+
+/* BUTTON */
+#toggleBtn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 2000;
+  background: #111;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+    
 /* RESPONSIVE */
 @media (max-width: 768px) {
     .card {
