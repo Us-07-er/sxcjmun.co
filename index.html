@@ -3,20 +3,38 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SXCJ MUN 2026</title>
-<link rel="stylesheet" href="style.css">
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <style>
 
-/* BASE */
+/* BASE + BACKGROUND */
 body {
   margin:0;
   font-family: 'Georgia', serif;
-  color:#fff;
-  scroll-behavior: smooth;
-  overflow-x: hidden;
+  color:#111;
+
+  background: url('bg.jpg') no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
 }
-  
+
+/* LIGHT OVERLAY (so bg visible but text readable) */
+body::before {
+  content:"";
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: linear-gradient(
+    rgba(244,241,234,0.75),
+    rgba(235,231,222,0.85)
+  );
+  z-index:-1;
+}
+
 /* SIDEBAR */
 .sidebar {
   position: fixed;
@@ -74,8 +92,11 @@ body {
 /* OVERLAY */
 .overlay {
   position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.5);
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.4);
   opacity:0;
   pointer-events:none;
   transition:0.3s;
@@ -89,30 +110,29 @@ body {
 
 /* HEADER */
 header {
-  padding:140px 20px;
+  padding:120px 20px;
   text-align:center;
+  border-bottom:1px solid #ccc;
+  border-radius:0 0 30px 30px;
 }
 
-h1 {
-  font-size:48px;
-  margin-bottom:10px;
-}
+h1 { font-size:48px; }
 
 /* SECTIONS */
 section {
   padding:100px 20px;
   max-width:900px;
   margin:auto;
-  border-bottom:1px solid rgba(255,255,255,0.1);
+  border-bottom:1px solid #ddd;
+  border-radius:16px;
+  transition:0.4s;
 }
 
-h2 {
-  font-size:32px;
-  margin-bottom:25px;
-}
+section:hover { transform:translateY(-3px); }
 
 section p {
   line-height:1.7;
+  font-size:15px;
   opacity:0.9;
 }
 
@@ -134,26 +154,26 @@ section p {
 }
 
 /* BOXES */
-.participate {
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-}
-
 .box {
-  border:1px solid rgba(255,255,255,0.2);
+  border:1px solid #ccc;
   padding:25px;
   margin:15px;
   width:260px;
-  background:rgba(255,255,255,0.05);
-  backdrop-filter: blur(8px);
+  background:#fff;
   border-radius:18px;
+  display:inline-block;
   transition:0.3s;
 }
 
 .box:hover {
   transform:translateY(-10px);
-  box-shadow:0 10px 30px rgba(0,0,0,0.3);
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+.participate {
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
 }
 
 /* COUNTDOWN */
@@ -162,11 +182,12 @@ section p {
   grid-template-columns: repeat(2, 120px);
   gap:20px;
   justify-content:center;
+  margin-top:30px;
 }
 
 .time-box {
-  background:rgba(255,255,255,0.08);
-  border:1px solid rgba(255,255,255,0.2);
+  background:#fff;
+  border:1px solid #ccc;
   width:120px;
   height:100px;
   display:flex;
@@ -181,10 +202,17 @@ section p {
   font-weight:bold;
 }
 
+.label {
+  font-size:12px;
+  color:#555;
+  margin-top:4px;
+  letter-spacing:1px;
+}
+
 /* FADE */
 .fade {
   opacity:0;
-  transform:translateY(40px);
+  transform:translateY(50px);
   transition:0.8s;
 }
 
@@ -193,13 +221,54 @@ section p {
   transform:translateY(0);
 }
 
+/* FOOTER (same as committees) */
+.footer {
+  background: #0a0a0a;
+  color: #f4f1ea;
+  padding: 70px 10% 20px;
+  border-top: 2px solid transparent;
+  border-image: linear-gradient(to right, #8c52ff, #5ce1e6) 1;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 220px;
+}
+
+.footer-col h2 { font-size:1.8rem; }
+.tagline { font-style:italic; opacity:0.8; }
+
+.footer-col a {
+  display:block;
+  color:#f4f1ea;
+  margin:8px 0;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.footer-col a:hover {
+  color:#5ce1e6;
+  transform:translateX(6px);
+}
+
+.footer-bottom {
+  text-align:center;
+  margin-top:40px;
+  font-size:0.8rem;
+  opacity:0.6;
+}
+
 /* MOBILE */
 @media (max-width:768px){
   h1 {font-size:30px;}
-  h2 {font-size:24px;}
-
   section {padding:60px 15px;}
-
   .box {width:90%;}
 }
 
@@ -207,8 +276,6 @@ section p {
 </head>
 
 <body>
-
-<div class="bg"></div>
 
 <button id="toggleBtn" onclick="toggleSidebar()">☰</button>
 
@@ -236,26 +303,16 @@ section p {
   <h2>Conference Begins In</h2>
 
   <div id="countdown">
-    <div class="time-box"><span id="days">0</span></div>
-    <div class="time-box"><span id="hours">0</span></div>
-    <div class="time-box"><span id="minutes">0</span></div>
-    <div class="time-box"><span id="seconds">0</span></div>
+    <div class="time-box"><span id="days">0</span><div class="label">DAYS</div></div>
+    <div class="time-box"><span id="hours">0</span><div class="label">HOURS</div></div>
+    <div class="time-box"><span id="minutes">0</span><div class="label">MINUTES</div></div>
+    <div class="time-box"><span id="seconds">0</span><div class="label">SECONDS</div></div>
   </div>
 </section>
 
 <section class="fade">
   <h2>About SXCJ MUN</h2>
-
-  <p>
-    SXCJ Model United Nations is a platform where dialogue meets diplomacy.
-    Delegates engage in global issues, develop negotiation skills, and learn
-    leadership through simulation of international relations.
-  </p>
-
-  <p>
-    Over two days, participants debate, collaborate, and craft solutions
-    — building confidence and perspective that extends beyond the committee room.
-  </p>
+  <p>SXCJ Model United Nations is a platform for dialogue, diplomacy, and leadership.</p>
 </section>
 
 <section class="fade">
@@ -280,16 +337,13 @@ section p {
 </section>
 
 <footer class="footer" id="footer">
-
   <div class="footer-container">
 
-    <!-- BRAND -->
     <div class="footer-col">
       <h2>SXCJ MUN</h2>
       <p class="tagline">“Celebrating Dialogue, Diplomacy, and Global Citizenship”</p>
     </div>
 
-    <!-- QUICK LINKS -->
     <div class="footer-col">
       <h3>Quick Links</h3>
       <a href="index.html">Home</a>
@@ -299,43 +353,34 @@ section p {
       <a href="register.html">Register</a>
     </div>
 
-    <!-- CONTACT -->
     <div class="footer-col">
       <h3>Contact</h3>
-
-      <p><i class="fas fa-phone"></i> Ayushi: 8440059834</p>
-      <p><i class="fas fa-phone"></i> Rakshita: 8278626707</p>
-
-      <p><i class="fas fa-envelope"></i> mun.sxcj.edu.in@gmail.com</p>
-
-      <p><i class="fas fa-map-marker-alt"></i> St. Xavier’s College, Jaipur</p>
-
-      <a href="https://instagram.com/sxcj_mun" target="_blank" class="insta">
-        <i class="fab fa-instagram"></i> @sxcj_mun
-      </a>
+      <p>Ayushi: 8440059834</p>
+      <p>Rakshita: 8278626707</p>
+      <p>mun.sxcj.edu.in@gmail.com</p>
     </div>
 
   </div>
 
   <div class="footer-bottom">
-    <p>© 2026 SXCJ MUN. All Rights Reserved.</p>
+    <p>© 2026 SXCJ MUN</p>
   </div>
-
 </footer>
 
 <script>
-/* SIDEBAR */
 function toggleSidebar() {
-  document.getElementById("sidebar").classList.toggle("active");
-  document.getElementById("overlay").classList.toggle("active");
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("overlay");
+
+  if (sidebar) sidebar.classList.toggle("active");
+  if (overlay) overlay.classList.toggle("active");
 }
 
-/* FADE FIX */
 const elements = document.querySelectorAll('.fade');
 
 function checkFade() {
   elements.forEach(el => {
-    if(el.getBoundingClientRect().top < window.innerHeight - 100){
+    if (el.getBoundingClientRect().top < window.innerHeight - 100) {
       el.classList.add('visible');
     }
   });
@@ -344,19 +389,19 @@ function checkFade() {
 window.addEventListener('scroll', checkFade);
 window.addEventListener('load', checkFade);
 
-/* COUNTDOWN */
 var countDownDate = new Date("May 15, 2026 00:00:00").getTime();
 
 setInterval(function() {
   var now = new Date().getTime();
   var distance = countDownDate - now;
 
+  if (distance < 0) return;
+
   document.getElementById("days").innerHTML = Math.floor(distance / (1000*60*60*24));
   document.getElementById("hours").innerHTML = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
   document.getElementById("minutes").innerHTML = Math.floor((distance % (1000*60*60)) / (1000*60));
   document.getElementById("seconds").innerHTML = Math.floor((distance % (1000*60)) / 1000);
 }, 1000);
-
 </script>
 
 </body>
