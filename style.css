@@ -2,7 +2,6 @@
   background: #0a0a0a;
   color: #f4f1ea;
   padding: 70px 10% 20px;
-
   border-top: 2px solid transparent;
   border-image: linear-gradient(to right, #8c52ff, #5ce1e6) 1;
 }
@@ -66,7 +65,7 @@
   color: #5ce1e6;
 }
 
-/* INSTAGRAM */
+/* INSTAGRAM SPECIAL */
 .insta {
   margin-top: 10px;
 }
@@ -91,57 +90,47 @@
   }
 }
 
-/* ===== SIDEBAR SYSTEM ===== */
-
+/* SIDEBAR */
 .sidebar {
   position: fixed;
   top: 0;
   left: 0;
-  width: 230px;
+  width: 220px;
   height: 100%;
   background: #111;
   padding: 40px 20px;
-
   transform: translateX(-100%);
-  transition: 0.35s ease;
+  transition: 0.3s ease;
   z-index: 1000;
 }
 
-/* ACTIVE STATE */
 .sidebar.active {
   transform: translateX(0);
 }
 
-/* LOGO */
 .sidebar .logo {
   color: #f4f1ea;
   margin-bottom: 40px;
-  font-size: 22px;
-  letter-spacing: 1px;
 }
 
-/* LINKS */
 .sidebar a {
   display: block;
   color: #f4f1ea;
   margin: 15px 0;
   text-decoration: none;
-  font-size: 14px;
-
-  opacity: 0.8;
   transition: 0.3s;
+  font-size: 14px;
+  opacity: 0.8;
 }
 
 .sidebar a:hover {
   opacity: 1;
-  transform: translateX(6px);
-  color: #5ce1e6;
+  transform: translateX(5px);
 }
 
-/* ACTIVE PAGE */
 .sidebar a.active {
-  color: #c2a47e;
-  font-weight: bold;
+  color:#c2a47e;
+  font-weight:bold;
 }
 
 /* TOGGLE BUTTON */
@@ -150,19 +139,11 @@
   top: 20px;
   left: 20px;
   z-index: 2000;
-
   background: #111;
   color: white;
   border: none;
-  padding: 10px 12px;
+  padding: 10px;
   cursor: pointer;
-  border-radius: 8px;
-
-  transition: 0.3s;
-}
-
-#toggleBtn:hover {
-  background: #000;
 }
 
 /* OVERLAY */
