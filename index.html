@@ -8,31 +8,31 @@
 <link rel="stylesheet" href="style.css">
 <style>
 
-/* BASE + BACKGROUND */
+/* BASE */
 body {
   margin:0;
   font-family: 'Georgia', serif;
-  color:#111;
-
-  background: url('IMG-20260430-WA0004.jpg') no-repeat center center;
-  background-size: cover;
-  background-attachment: fixed;
-  position: relative;
+  color:#fff;
+  scroll-behavior:smooth;
 }
 
-/* LIGHT OVERLAY (so bg visible but text readable) */
-body::before {
-  content:"";
+/* BACKGROUND (FIXED + NO DISAPPEAR ISSUE) */
+.bg {
   position:fixed;
   top:0;
   left:0;
   width:100%;
   height:100%;
-  background: linear-gradient(
-    rgba(244,241,234,0.75),
-    rgba(235,231,222,0.85)
-  );
-  z-index:-1;
+  background: url("IMG-20260430-WA0004.jpg") center/cover no-repeat;
+  z-index:-2;
+}
+
+.bg::after {
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.55);
 }
 
 /* SIDEBAR */
@@ -45,20 +45,15 @@ body::before {
   background:#111;
   padding:40px 20px;
   transform: translateX(-100%);
-  transition:0.3s ease;
+  transition:0.3s;
   z-index:1000;
 }
 
-.sidebar.active { transform: translateX(0); }
-
-.sidebar .logo {
-  color:#f4f1ea;
-  margin-bottom:40px;
-}
+.sidebar.active { transform:translateX(0); }
 
 .sidebar a {
   display:block;
-  color:#f4f1ea;
+  color:#fff;
   margin:15px 0;
   text-decoration:none;
   opacity:0.8;
@@ -70,14 +65,9 @@ body::before {
   transform:translateX(6px);
 }
 
-.sidebar a.active {
-  color:#c2a47e;
-  font-weight:bold;
-}
-
 /* TOGGLE */
 #toggleBtn {
-  position: fixed;
+  position:fixed;
   top:20px;
   left:20px;
   z-index:2000;
@@ -86,21 +76,18 @@ body::before {
   border:none;
   padding:10px;
   cursor:pointer;
-  border-radius:8px;
 }
 
 /* OVERLAY */
 .overlay {
   position:fixed;
-  top:0;
-  left:0;
   width:100%;
   height:100%;
-  background:rgba(0,0,0,0.4);
+  background:rgba(0,0,0,0.5);
   opacity:0;
   pointer-events:none;
   transition:0.3s;
-  z-index:999;
+  z-index:900;
 }
 
 .overlay.active {
@@ -108,93 +95,66 @@ body::before {
   pointer-events:all;
 }
 
+/* GLASS EFFECT */
+.glass {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(14px);
+  border:1px solid rgba(255,255,255,0.15);
+  border-radius:18px;
+}
+
 /* HEADER */
 header {
-  padding:120px 20px;
+  padding:140px 20px;
   text-align:center;
-  border-bottom:1px solid #ccc;
-  border-radius:0 0 30px 30px;
 }
 
-h1 { font-size:48px; }
-
-/* SECTIONS */
-section {
-  padding:100px 20px;
-  max-width:900px;
-  margin:auto;
-  border-bottom:1px solid #ddd;
-  border-radius:16px;
-  transition:0.4s;
+header h1 {
+  font-size:48px;
 }
 
-section:hover { transform:translateY(-3px); }
-
-section p {
-  line-height:1.7;
-  font-size:15px;
-  opacity:0.9;
-}
-
-/* BUTTON */
 .btn {
-  background:#6b4f3b;
-  color:white;
-  padding:12px 28px;
-  text-decoration:none;
   display:inline-block;
   margin-top:20px;
+  padding:12px 30px;
   border-radius:30px;
+  background:linear-gradient(135deg,#8c52ff,#5ce1e6);
+  color:#fff;
+  text-decoration:none;
   transition:0.3s;
 }
 
 .btn:hover {
-  transform:translateY(-3px);
-  background:#000;
+  transform:translateY(-4px);
 }
 
-/* BOXES */
-.box {
-  border:1px solid #ccc;
-  padding:25px;
-  margin:15px;
-  width:260px;
-  background:#fff;
-  border-radius:18px;
-  display:inline-block;
-  transition:0.3s;
-}
-
-.box:hover {
-  transform:translateY(-10px);
-  box-shadow:0 10px 30px rgba(0,0,0,0.1);
-}
-
-.participate {
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
+/* SECTIONS */
+section {
+  padding:80px 20px;
+  max-width:1000px;
+  margin:auto;
 }
 
 /* COUNTDOWN */
 #countdown {
-  display:grid;
-  grid-template-columns: repeat(2, 120px);
-  gap:20px;
+  display:flex;
   justify-content:center;
-  margin-top:30px;
+  gap:20px;
+  flex-wrap:wrap;
 }
 
 .time-box {
-  background:#fff;
-  border:1px solid #ccc;
-  width:120px;
-  height:100px;
+  width:110px;
+  height:110px;
   display:flex;
   flex-direction:column;
-  justify-content:center;
   align-items:center;
-  border-radius:14px;
+  justify-content:center;
+  transition:0.3s;
+}
+
+.time-box:hover {
+  transform:translateY(-8px) scale(1.05);
 }
 
 .time-box span {
@@ -204,27 +164,62 @@ section p {
 
 .label {
   font-size:12px;
-  color:#555;
-  margin-top:4px;
-  letter-spacing:1px;
+  opacity:0.8;
 }
 
-/* FADE */
-.fade {
-  opacity:0;
-  transform:translateY(50px);
-  transition:0.8s;
+/* CARDS */
+.participate {
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:20px;
 }
 
-.fade.visible {
+.box {
+  width:260px;
+  padding:25px;
+  transition:0.3s;
+}
+
+.box:hover {
+  transform:translateY(-10px) scale(1.03);
+}
+
+/* FOOTER */
+.footer {
+  background:#0a0a0a;
+  padding:60px 10%;
+}
+
+.footer-container {
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:40px;
+}
+
+.footer-col a {
+  display:block;
+  color:#fff;
+  margin:6px 0;
+  text-decoration:none;
+  opacity:0.8;
+}
+
+.footer-col a:hover {
   opacity:1;
-  transform:translateY(0);
+  color:#5ce1e6;
+}
+
+.footer-bottom {
+  text-align:center;
+  margin-top:40px;
+  opacity:0.6;
 }
 
 /* MOBILE */
-@media (max-width:768px){
-  h1 {font-size:30px;}
-  section {padding:60px 15px;}
+@media(max-width:768px){
+  header h1 {font-size:30px;}
   .box {width:90%;}
 }
 
@@ -233,12 +228,12 @@ section p {
 
 <body>
 
+<div class="bg"></div>
+
 <button id="toggleBtn" onclick="toggleSidebar()">☰</button>
 
 <div class="sidebar" id="sidebar">
-  <h2 class="logo">SXCJ</h2>
-
-  <a href="index.html" class="active">Home</a>
+  <a href="index.html">Home</a>
   <a href="committees.html">Committees</a>
   <a href="secretariat.html">Secretariat</a>
   <a href="itinerary.html">Itinerary</a>
@@ -248,46 +243,50 @@ section p {
 
 <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
 
-<header class="fade">
+<header>
   <h1>SXCJ MUN 2026</h1>
   <p><i>“Celebrating Dialogue, Diplomacy, and Global Citizenship”</i></p>
-  <p>15–16 May 2026 | St. Xavier's College, Jaipur</p>
   <a class="btn">Registrations Opening Soon</a>
 </header>
 
-<section class="fade">
-  <h2>Conference Begins In</h2>
+<section>
+  <h2 style="text-align:center;">Conference Begins In</h2>
 
   <div id="countdown">
-    <div class="time-box"><span id="days">0</span><div class="label">DAYS</div></div>
-    <div class="time-box"><span id="hours">0</span><div class="label">HOURS</div></div>
-    <div class="time-box"><span id="minutes">0</span><div class="label">MINUTES</div></div>
-    <div class="time-box"><span id="seconds">0</span><div class="label">SECONDS</div></div>
+    <div class="time-box glass"><span id="days">0</span><div class="label">DAYS</div></div>
+    <div class="time-box glass"><span id="hours">0</span><div class="label">HOURS</div></div>
+    <div class="time-box glass"><span id="minutes">0</span><div class="label">MINUTES</div></div>
+    <div class="time-box glass"><span id="seconds">0</span><div class="label">SECONDS</div></div>
   </div>
 </section>
 
-<section class="fade">
-  <h2>About SXCJ MUN</h2>
-  <p>SXCJ Model United Nations is a platform for dialogue, diplomacy, and leadership.</p>
+<section>
+  <h2>About</h2>
+  <div class="glass" style="padding:25px;">
+    <p>
+      SXCJ Model United Nations is a platform where diplomacy meets intellect.
+      Delegates engage in global issues, debate perspectives, and craft impactful solutions.
+    </p>
+  </div>
 </section>
 
-<section class="fade">
+<section>
   <h2>Why Participate</h2>
 
   <div class="participate">
-    <div class="box">
-      <h3>Leadership Skills</h3>
-      <p>Develop critical thinking and diplomacy.</p>
+    <div class="box glass">
+      <h3>Leadership</h3>
+      <p>Sharpen decision-making and diplomacy.</p>
     </div>
 
-    <div class="box">
-      <h3>Global Exposure</h3>
-      <p>Engage in meaningful debate.</p>
+    <div class="box glass">
+      <h3>Exposure</h3>
+      <p>Experience global-level discussions.</p>
     </div>
 
-    <div class="box">
+    <div class="box glass">
       <h3>Confidence</h3>
-      <p>Lead with clarity and conviction.</p>
+      <p>Speak, negotiate, and lead.</p>
     </div>
   </div>
 </section>
@@ -297,11 +296,10 @@ section p {
 
     <div class="footer-col">
       <h2>SXCJ MUN</h2>
-      <p class="tagline">“Celebrating Dialogue, Diplomacy, and Global Citizenship”</p>
+      <p>“Celebrating Dialogue, Diplomacy, and Global Citizenship”</p>
     </div>
 
     <div class="footer-col">
-      <h3>Quick Links</h3>
       <a href="index.html">Home</a>
       <a href="committees.html">Committees</a>
       <a href="secretariat.html">Secretariat</a>
@@ -310,7 +308,6 @@ section p {
     </div>
 
     <div class="footer-col">
-      <h3>Contact</h3>
       <p>Ayushi: 8440059834</p>
       <p>Rakshita: 8278626707</p>
       <p>mun.sxcj.edu.in@gmail.com</p>
@@ -319,45 +316,27 @@ section p {
   </div>
 
   <div class="footer-bottom">
-    <p>© 2026 SXCJ MUN</p>
+    © 2026 SXCJ MUN
   </div>
 </footer>
 
 <script>
-function toggleSidebar() {
-  const sidebar = document.getElementById("sidebar");
-  const overlay = document.getElementById("overlay");
-
-  if (sidebar) sidebar.classList.toggle("active");
-  if (overlay) overlay.classList.toggle("active");
+function toggleSidebar(){
+  document.getElementById("sidebar").classList.toggle("active");
+  document.getElementById("overlay").classList.toggle("active");
 }
-
-const elements = document.querySelectorAll('.fade');
-
-function checkFade() {
-  elements.forEach(el => {
-    if (el.getBoundingClientRect().top < window.innerHeight - 100) {
-      el.classList.add('visible');
-    }
-  });
-}
-
-window.addEventListener('scroll', checkFade);
-window.addEventListener('load', checkFade);
 
 var countDownDate = new Date("May 15, 2026 00:00:00").getTime();
 
-setInterval(function() {
+setInterval(function(){
   var now = new Date().getTime();
-  var distance = countDownDate - now;
+  var d = countDownDate - now;
 
-  if (distance < 0) return;
-
-  document.getElementById("days").innerHTML = Math.floor(distance / (1000*60*60*24));
-  document.getElementById("hours").innerHTML = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
-  document.getElementById("minutes").innerHTML = Math.floor((distance % (1000*60*60)) / (1000*60));
-  document.getElementById("seconds").innerHTML = Math.floor((distance % (1000*60)) / 1000);
-}, 1000);
+  document.getElementById("days").innerHTML = Math.floor(d/(1000*60*60*24));
+  document.getElementById("hours").innerHTML = Math.floor((d%(1000*60*60*24))/(1000*60*60));
+  document.getElementById("minutes").innerHTML = Math.floor((d%(1000*60*60))/(1000*60));
+  document.getElementById("seconds").innerHTML = Math.floor((d%(1000*60))/1000);
+},1000);
 </script>
 
 </body>
