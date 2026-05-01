@@ -18,24 +18,34 @@ body {
 }
 
 /* BACKGROUND */
-.bg {
+  .bg {
   position: fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
+  top: -10%;
+  left: 0;
+  width: 100%;
+  height: 120%; /* taller than screen */
+
   background: url('IMG-20260430-WA0004.jpg') center/cover no-repeat;
-  z-index:-2;
-  transform: scale(1.05);
+  z-index: -2;
 }
 
+/* overlay */
 .bg::after {
-  content:"";
-  position:absolute;
-  inset:0;
+  content: "";
+  position: absolute;
+  inset: 0;
   background: rgba(0,0,0,0.55);
 }
 
+.bg {
+  animation: slowZoom 20s ease-in-out infinite alternate;
+}
+
+@keyframes slowZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+  
 /* SIDEBAR */
 .sidebar {
   position: fixed;
@@ -398,12 +408,6 @@ setInterval(function() {
   document.getElementById("seconds").innerHTML = Math.floor((distance % (1000*60)) / 1000);
 }, 1000);
 
-/* PARALLAX */
-window.addEventListener("scroll", () => {
-  const scrollY = window.scrollY;
-  document.querySelector(".bg").style.transform =
-    `translateY(${scrollY * 0.3}px) scale(1.05)`;
-});
 </script>
 
 </body>
