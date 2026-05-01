@@ -93,128 +93,6 @@ body {
     opacity: 0.85;
 }
 
-/* SIDEBAR */
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 220px;
-  height: 100%;
-  background: #111;
-  padding: 40px 20px;
-  transform: translateX(-100%);
-  transition: 0.3s ease;
-  z-index: 1000;
-}
-
-.sidebar.active {
-  transform: translateX(0);
-}
-
-.sidebar .logo {
-  color: #f4f1ea;
-  margin-bottom: 40px;
-}
-
-.sidebar a {
-  display: block;
-  color: #f4f1ea;
-  margin: 15px 0;
-  text-decoration: none;
-  font-size: 14px;
-  opacity: 0.8;
-  transition: 0.3s;
-}
-
-.sidebar a:hover {
-  opacity: 1;
-  transform: translateX(6px);
-}
-
-.sidebar a.active {
-  color: #c2a47e;
-  font-weight: bold;
-}
-
-/* BUTTON */
-#toggleBtn {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 2000;
-  background: #111;
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-}
-
-/* OVERLAY */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.5);
-  display: none;
-  z-index: 900;
-}
-
-.overlay.active {
-  display: block;
-}
-
-/* FOOTER */
-.footer {
-  background: #0a0a0a;
-  color: #f4f1ea;
-  padding: 70px 10% 20px;
-  border-top: 2px solid transparent;
-  border-image: linear-gradient(to right, #8c52ff, #5ce1e6) 1;
-}
-
-.footer-container {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 50px;
-}
-
-.footer-col {
-  flex: 1;
-  min-width: 220px;
-}
-
-.footer-col h2 { font-size: 1.8rem; }
-.tagline { font-style: italic; opacity: 0.8; }
-
-.footer-col a {
-  display: block;
-  color: #f4f1ea;
-  margin: 8px 0;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.footer-col a:hover {
-  color: #5ce1e6;
-  transform: translateX(5px);
-}
-
-.footer-bottom {
-  text-align: center;
-  margin-top: 40px;
-  font-size: 0.8rem;
-  opacity: 0.6;
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-    .card { flex-direction: column; }
-    .footer-container { flex-direction: column; }
-}
-
 </style>
 </head>
 
@@ -240,7 +118,105 @@ body {
     <h1>Event Itinerary</h1>
 </section>
 
-<!-- (KEEP YOUR EXISTING 5 SECTIONS HERE — NO CHANGE NEEDED) -->
+<!-- SECTION 1: OPENING CEREMONY -->
+<section class="section dark">
+<h2>Opening Ceremony</h2>
+<div class="sub">15 May 2026 · Fr. Stan Swamy Auditorium · 9:00 AM onwards</div>
+
+<div class="schedule">
+
+<div class="card"><div class="time">9:00 – 9:02</div><div class="details"><h3>Ceremonial Welcome & Opening Remarks</h3></div></div>
+<div class="card"><div class="time">9:02 – 9:05</div><div class="details"><h3>Illumination of Wisdom: Lamp Lighting Ceremony</h3></div></div>
+<div class="card"><div class="time">9:05 – 9:10</div><div class="details"><h3>Green Greetings: Eco-Honouring of Guests</h3></div></div>
+<div class="card"><div class="time">9:10 – 9:15</div><div class="details"><h3>Invocation of Grace: Classical Prayer Dance</h3></div></div>
+<div class="card"><div class="time">9:15 – 9:20</div><div class="details"><h3>Address by Rev. Dr. Arokya Swami SJ</h3></div></div>
+<div class="card"><div class="time">9:20 – 9:25</div><div class="details"><h3>Thematic Skit Performance</h3></div></div>
+<div class="card"><div class="time">9:25 – 9:30</div><div class="details"><h3>Chief Guest Address</h3></div></div>
+<div class="card"><div class="time">9:30 – 10:15</div><div class="details"><h3>Panel Discussion</h3><p>“World on the Brink: Can Diplomacy Defuse Global Divides?”</p></div></div>
+<div class="card"><div class="time">10:15 onwards</div><div class="details"><h3>Vote of Thanks</h3></div></div>
+<div class="card"><div class="time">After</div><div class="details"><h3>Group Photograph</h3></div></div>
+
+</div>
+</section>
+
+<!-- SECTION 2: DAY 1 -->
+<section class="section light">
+<h2>Day 1 — Diplomacy, Debate & Deliberation</h2>
+<div class="sub">15 May 2026</div>
+
+<div class="schedule">
+
+<div class="card"><div class="time">8:00 – 8:45</div><div class="details"><h3>Delegate Check-In & Registration</h3><p>Badge collection, kits, placards, attendance</p></div></div>
+<div class="card"><div class="time">8:00 – 8:45</div><div class="details"><h3>Secretariat & Venue Readiness</h3><p>Room setup, AV checks, logistics</p></div></div>
+<div class="card"><div class="time">9:00 – 10:15</div><div class="details"><h3>Opening Ceremony</h3><p>Formal inaugural proceedings</p></div></div>
+<div class="card"><div class="time">10:15 – 10:30</div><div class="details"><h3>Strategic Transition Break</h3></div></div>
+<div class="card"><div class="time">10:30 – 11:00</div><div class="details"><h3>Committee Session I</h3><p>Agenda adoption & opening statements</p></div></div>
+<div class="card"><div class="time">11:00 – 12:30</div><div class="details"><h3>Committee Session II</h3><p>General debate & moderated caucus</p></div></div>
+<div class="card"><div class="time">12:30 – 1:00</div><div class="details"><h3>Lunch Break</h3></div></div>
+<div class="card"><div class="time">1:00 – 2:30</div><div class="details"><h3>Committee Session III</h3><p>Bloc formation & drafting</p></div></div>
+<div class="card"><div class="time">2:30 – 4:00</div><div class="details"><h3>Committee Session IV</h3><p>Resolution framework</p></div></div>
+<div class="card"><div class="time">4:00 – 4:15</div><div class="details"><h3>High Tea Break</h3></div></div>
+<div class="card"><div class="time">4:15 – 5:00</div><div class="details"><h3>Committee Session V</h3><p>Amendments & summary</p></div></div>
+<div class="card"><div class="time">5:00</div><div class="details"><h3>Adjournment</h3></div></div>
+
+</div>
+</section>
+
+<!-- SECTION 3: DAY 2 -->
+<section class="section dark">
+<h2>Day 2 — Resolution, Recognition & Celebration</h2>
+<div class="sub">16 May 2026</div>
+
+<div class="schedule">
+
+<div class="card"><div class="time">8:30 – 9:00</div><div class="details"><h3>Delegate Reassembly</h3></div></div>
+<div class="card"><div class="time">9:00 – 10:30</div><div class="details"><h3>Committee Session VI</h3></div></div>
+<div class="card"><div class="time">10:30 – 10:45</div><div class="details"><h3>Tea Break</h3></div></div>
+<div class="card"><div class="time">10:45 – 12:15</div><div class="details"><h3>Committee Session VII</h3></div></div>
+<div class="card"><div class="time">12:15 – 1:00</div><div class="details"><h3>Lunch Break</h3></div></div>
+<div class="card"><div class="time">1:00 – 2:30</div><div class="details"><h3>Committee Session VIII</h3></div></div>
+<div class="card"><div class="time">2:30 – 3:00</div><div class="details"><h3>Break & Preparation</h3></div></div>
+<div class="card"><div class="time">3:00 – 4:30</div><div class="details"><h3>Closing & Awards Ceremony</h3></div></div>
+<div class="card"><div class="time">4:30 – 6:00</div><div class="details"><h3>Cultural Fiesta: LOKRANG SOIRÉE</h3><p>Performances, celebration, networking</p></div></div>
+<div class="card"><div class="time">6:00</div><div class="details"><h3>MUN Concludes</h3></div></div>
+
+</div>
+</section>
+
+<!-- SECTION 4: CLOSING CEREMONY -->
+<section class="section light">
+<h2>Closing Ceremony</h2>
+
+<div class="schedule">
+
+<div class="card"><div class="time">3:00 – 3:03</div><div class="details"><h3>Welcome & Prelude</h3></div></div>
+<div class="card"><div class="time">3:03 – 3:08</div><div class="details"><h3>Secretary-General Address</h3></div></div>
+<div class="card"><div class="time">3:08 – 3:13</div><div class="details"><h3>Guest Address</h3></div></div>
+<div class="card"><div class="time">3:13 – 3:20</div><div class="details"><h3>Recognition of Council</h3></div></div>
+<div class="card"><div class="time">3:20 – 3:32</div><div class="details"><h3>Committee Highlights</h3></div></div>
+<div class="card"><div class="time">3:32 – 4:00</div><div class="details"><h3>Awards Ceremony</h3></div></div>
+<div class="card"><div class="time">4:00 – 4:10</div><div class="details"><h3>Prestige Honors</h3></div></div>
+<div class="card"><div class="time">4:10 – 4:15</div><div class="details"><h3>Best Delegate</h3></div></div>
+<div class="card"><div class="time">4:15 – 4:22</div><div class="details"><h3>Vote of Gratitude</h3></div></div>
+<div class="card"><div class="time">4:22 – 4:25</div><div class="details"><h3>MUN Legacy Oath</h3></div></div>
+<div class="card"><div class="time">4:25 – 4:28</div><div class="details"><h3>National Anthem</h3></div></div>
+<div class="card"><div class="time">4:28 – 4:30</div><div class="details"><h3>Group Photograph</h3></div></div>
+
+</div>
+</section>
+
+<!-- SECTION 5: CULTURAL -->
+<section class="section dark">
+<h2>Cultural Fiesta — LOKRANG SOIRÉE</h2>
+<div class="sub">4:30 PM – 6:00 PM</div>
+
+<div class="schedule">
+<div class="card"><div class="details"><h3>Featuring</h3>
+<p>Cultural performances · Music & dance showcase · Celebration of diversity · Networking & farewell</p>
+</div></div>
+</div>
+
+</section>
 
 <!-- FOOTER -->
 <footer class="footer">

@@ -35,65 +35,6 @@ body {
   background:rgba(0,0,0,0.55);
 }
 
-/* SIDEBAR */
-.sidebar {
-  position: fixed;
-  top:0;
-  left:0;
-  width:220px;
-  height:100%;
-  background:#111;
-  padding:40px 20px;
-  transform: translateX(-100%);
-  transition:0.3s;
-  z-index:1000;
-}
-
-.sidebar.active { transform:translateX(0); }
-
-.sidebar a {
-  display:block;
-  color:#fff;
-  margin:15px 0;
-  text-decoration:none;
-  opacity:0.8;
-  transition:0.3s;
-}
-
-.sidebar a:hover {
-  opacity:1;
-  transform:translateX(6px);
-}
-
-/* TOGGLE */
-#toggleBtn {
-  position:fixed;
-  top:20px;
-  left:20px;
-  z-index:2000;
-  background:#111;
-  color:white;
-  border:none;
-  padding:10px;
-  cursor:pointer;
-}
-
-/* OVERLAY */
-.overlay {
-  position:fixed;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.5);
-  opacity:0;
-  pointer-events:none;
-  transition:0.3s;
-  z-index:900;
-}
-
-.overlay.active {
-  opacity:1;
-  pointer-events:all;
-}
 
 /* GLASS EFFECT */
 .glass {
@@ -185,44 +126,6 @@ section {
   transform:translateY(-10px) scale(1.03);
 }
 
-/* FOOTER */
-.footer {
-  background:#0a0a0a;
-  padding:60px 10%;
-}
-
-.footer-container {
-  display:flex;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  gap:40px;
-}
-
-.footer-col a {
-  display:block;
-  color:#fff;
-  margin:6px 0;
-  text-decoration:none;
-  opacity:0.8;
-}
-
-.footer-col a:hover {
-  opacity:1;
-  color:#5ce1e6;
-}
-
-.footer-bottom {
-  text-align:center;
-  margin-top:40px;
-  opacity:0.6;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-  header h1 {font-size:30px;}
-  .box {width:90%;}
-}
-
 </style>
 </head>
 
@@ -237,8 +140,6 @@ section {
   <a href="committees.html">Committees</a>
   <a href="secretariat.html">Secretariat</a>
   <a href="itinerary.html">Itinerary</a>
-  <a href="register.html">Register</a>
-  <a href="#footer">Contact</a>
 </div>
 
 <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
@@ -304,7 +205,6 @@ section {
       <a href="committees.html">Committees</a>
       <a href="secretariat.html">Secretariat</a>
       <a href="itinerary.html">Itinerary</a>
-      <a href="register.html">Register</a>
     </div>
 
     <div class="footer-col">
