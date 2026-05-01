@@ -3,7 +3,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SXCJ MUN 2026</title>
-
+<link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <style>
@@ -15,35 +15,6 @@ body {
   color:#fff;
   scroll-behavior: smooth;
   overflow-x: hidden;
-}
-
-/* BACKGROUND */
-  .bg {
-  position: fixed;
-  top: -10%;
-  left: 0;
-  width: 100%;
-  height: 120%; /* taller than screen */
-
-  background: url('IMG-20260430-WA0004.jpg') center/cover no-repeat;
-  z-index: -2;
-}
-
-/* overlay */
-.bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.55);
-}
-
-.bg {
-  animation: slowZoom 20s ease-in-out infinite alternate;
-}
-
-@keyframes slowZoom {
-  from { transform: scale(1); }
-  to { transform: scale(1.08); }
 }
   
 /* SIDEBAR */
@@ -222,41 +193,6 @@ section p {
   transform:translateY(0);
 }
 
-/* FOOTER */
-.footer {
-  background:#0a0a0a;
-  padding:70px 10% 20px;
-}
-
-.footer-container {
-  display:flex;
-  flex-wrap:wrap;
-  gap:40px;
-}
-
-.footer-col {
-  flex:1;
-  min-width:220px;
-}
-
-.footer-col a {
-  display:block;
-  color:#fff;
-  margin:8px 0;
-  text-decoration:none;
-}
-
-.footer-col a:hover {
-  color:#5ce1e6;
-  transform:translateX(5px);
-}
-
-.footer-bottom {
-  text-align:center;
-  margin-top:40px;
-  opacity:0.6;
-}
-
 /* MOBILE */
 @media (max-width:768px){
   h1 {font-size:30px;}
@@ -344,13 +280,16 @@ section p {
 </section>
 
 <footer class="footer" id="footer">
+
   <div class="footer-container">
 
+    <!-- BRAND -->
     <div class="footer-col">
       <h2>SXCJ MUN</h2>
-      <p>“Celebrating Dialogue, Diplomacy, and Global Citizenship”</p>
+      <p class="tagline">“Celebrating Dialogue, Diplomacy, and Global Citizenship”</p>
     </div>
 
+    <!-- QUICK LINKS -->
     <div class="footer-col">
       <h3>Quick Links</h3>
       <a href="index.html">Home</a>
@@ -360,18 +299,28 @@ section p {
       <a href="register.html">Register</a>
     </div>
 
+    <!-- CONTACT -->
     <div class="footer-col">
       <h3>Contact</h3>
-      <p>Ayushi: 8440059834</p>
-      <p>Rakshita: 8278626707</p>
-      <p>mun.sxcj.edu.in@gmail.com</p>
+
+      <p><i class="fas fa-phone"></i> Ayushi: 8440059834</p>
+      <p><i class="fas fa-phone"></i> Rakshita: 8278626707</p>
+
+      <p><i class="fas fa-envelope"></i> mun.sxcj.edu.in@gmail.com</p>
+
+      <p><i class="fas fa-map-marker-alt"></i> St. Xavier’s College, Jaipur</p>
+
+      <a href="https://instagram.com/sxcj_mun" target="_blank" class="insta">
+        <i class="fab fa-instagram"></i> @sxcj_mun
+      </a>
     </div>
 
   </div>
 
   <div class="footer-bottom">
-    <p>© 2026 SXCJ MUN</p>
+    <p>© 2026 SXCJ MUN. All Rights Reserved.</p>
   </div>
+
 </footer>
 
 <script>
