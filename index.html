@@ -5,9 +5,10 @@
 <title>SXCJ MUN 2026</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
 <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Hentaigana:wght@200..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Hentaigana&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
 
@@ -40,71 +41,48 @@ body {
   background:rgba(0,0,0,0.55);
 }
 
+/* LOGO COMMON */
+.logo-img {
+  width:35px;
+  height:35px;
+  object-fit:contain;
+  margin-right:10px;
+  transition:0.3s;
+}
+
+.logo-img:hover {
+  transform:scale(1.1);
+  filter: drop-shadow(0 0 8px rgba(140,82,255,0.7));
+}
+
+/* TOP RIGHT LOGOS */
+.top-logos {
+  position:fixed;
+  top:20px;
+  right:20px;
+  display:flex;
+  gap:12px;
+  z-index:2000;
+}
+
+.top-logos img {
+  width:45px;
+  height:45px;
+  border-radius:10px;
+  transition:0.3s;
+}
+
+.top-logos img:hover {
+  transform:scale(1.15);
+  box-shadow:0 0 20px rgba(92,225,230,0.7);
+}
+
 /* GLASS */
 .glass {
   background: rgba(255,255,255,0.08);
   backdrop-filter: blur(14px);
   border:1px solid rgba(255,255,255,0.15);
   border-radius:18px;
-}
-
-/* TOP LOGOS */
-.top-logos {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  display: flex;
-  gap: 12px;
-  z-index: 1500;
-}
-
-.top-logos img {
-  width: 60px;
-  background: rgba(255,255,255,0.08);
-  padding: 6px;
-  border-radius: 14px;
-  backdrop-filter: blur(8px);
-  transition: 0.35s;
-}
-
-.top-logos img:hover {
-  transform: translateY(-5px) scale(1.1);
-  box-shadow: 0 12px 30px rgba(92,225,230,0.45);
-}
-
-/* SIDEBAR LOGO */
-.logo-container {
-  text-align:center;
-  margin-bottom:35px;
-}
-
-.logo-container img {
-  width:85px;
-  background: rgba(255,255,255,0.08);
-  padding:6px;
-  border-radius:14px;
-  backdrop-filter: blur(8px);
-  transition:0.3s;
-}
-
-.logo-container img:hover {
-  transform:scale(1.08);
-  box-shadow:0 10px 25px rgba(140,82,255,0.4);
-}
-
-/* FOOTER LOGO */
-.footer-logo {
-  width:95px;
-  margin-bottom:12px;
-  background: rgba(255,255,255,0.05);
-  padding:6px;
-  border-radius:12px;
-  transition:0.3s;
-}
-
-.footer-logo:hover {
-  transform:scale(1.05);
-  box-shadow:0 10px 25px rgba(255,255,255,0.25);
 }
 
 /* HEADER */
@@ -114,34 +92,22 @@ header {
 }
 
 header h1 {
-  font-family:"Fjalla One", sans-serif;
+  font-family: "Fjalla One", sans-serif;
   font-size:108px;
 }
 
 header p {
-  font-family:"Merriweather", serif;
+  font-family: "Merriweather", serif;
   font-size:22px;
-  font-style:italic;
   opacity:0.9;
+  font-style:italic;
 }
 
-/* TEXT */
+/* HEADINGS */
 h2 {
-  font-family:"Merriweather", serif;
+  font-family: "Merriweather", serif;
   font-size:46px;
   margin-bottom:20px;
-}
-
-.box h3 {
-  font-family:"Noto Serif Hentaigana", serif;
-  font-size:30px;
-}
-
-.box p,
-section p {
-  font-family:"Noto Serif Hentaigana", serif;
-  font-size:18px;
-  line-height:1.8;
 }
 
 /* BUTTON */
@@ -153,6 +119,11 @@ section p {
   background:linear-gradient(135deg,#8c52ff,#5ce1e6);
   color:#fff;
   text-decoration:none;
+  transition:0.3s;
+}
+
+.btn:hover {
+  transform:translateY(-4px);
 }
 
 /* SECTIONS */
@@ -177,6 +148,11 @@ section {
   flex-direction:column;
   align-items:center;
   justify-content:center;
+  transition:0.3s;
+}
+
+.time-box:hover {
+  transform:translateY(-8px) scale(1.05);
 }
 
 .time-box span {
@@ -186,6 +162,7 @@ section {
 
 .label {
   font-size:18px;
+  opacity:0.8;
 }
 
 /* CARDS */
@@ -199,11 +176,32 @@ section {
 .box {
   width:260px;
   padding:25px;
+  transition:0.3s;
 }
 
-/* MOBILE */
-@media (max-width:768px){
-  .top-logos img { width:42px; }
+.box:hover {
+  transform:translateY(-10px) scale(1.03);
+}
+
+.box h3 {
+  font-family: "Noto Serif Hentaigana", serif;
+  font-size:30px;
+}
+
+.box p {
+  font-family: "Noto Serif Hentaigana", serif;
+  font-size:18px;
+}
+
+/* SIDEBAR LOGO ALIGN */
+.logo {
+  display:flex;
+  align-items:center;
+}
+
+.footer-col h2 {
+  display:flex;
+  align-items:center;
 }
 
 </style>
@@ -221,12 +219,12 @@ section {
 
 <button id="toggleBtn" onclick="toggleSidebar()">☰</button>
 
+<!-- SIDEBAR -->
 <div class="sidebar" id="sidebar">
-
-  <!-- SIDEBAR LOGO -->
-  <div class="logo-container">
-    <img src="logo1.png">
-  </div>
+  <h2 class="logo">
+    <img src="logo1.png" class="logo-img">
+    SXCJ
+  </h2>
 
   <a href="index.html" class="active"><i class="fas fa-home"></i> Home</a>
   <a href="committees.html"><i class="fas fa-users"></i> Committees</a>
@@ -236,12 +234,14 @@ section {
 
 <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
 
+<!-- HEADER -->
 <header>
   <h1>SXCJ MUN 2026</h1>
   <p>“Celebrating Dialogue, Diplomacy, and Global Citizenship”</p>
   <a class="btn">Register Now</a>
 </header>
 
+<!-- COUNTDOWN -->
 <section>
   <h2 style="text-align:center;">Conference Begins In</h2>
 
@@ -253,6 +253,7 @@ section {
   </div>
 </section>
 
+<!-- ABOUT -->
 <section>
   <h2>About Us</h2>
   <div class="glass" style="padding:25px;">
@@ -262,33 +263,37 @@ section {
   </div>
 </section>
 
+<!-- WHY -->
 <section>
   <h2>Why Participate?</h2>
 
   <div class="participate">
     <div class="box glass">
       <h3>Leadership</h3>
-      <p>From driving negotiations...</p>
+      <p>Drive negotiations and shape outcomes.</p>
     </div>
 
     <div class="box glass">
       <h3>Exposure</h3>
-      <p>SXCJ MUN is designed...</p>
+      <p>Engage with diverse global perspectives.</p>
     </div>
 
     <div class="box glass">
       <h3>Confidence</h3>
-      <p>The transformation is undeniable...</p>
+      <p>Speak with clarity and conviction.</p>
     </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer class="footer">
-
   <div class="footer-container">
 
     <div class="footer-col">
-      <img src="logo1.png" class="footer-logo">
+      <h2>
+        <img src="logo1.png" class="logo-img">
+        SXCJ MUN
+      </h2>
       <p class="tagline">“Celebrating Dialogue, Diplomacy, and Global Citizenship”</p>
     </div>
 
@@ -305,6 +310,7 @@ section {
       <p><i class="fas fa-phone"></i> Ayushi: 8440059834</p>
       <p><i class="fas fa-phone"></i> Rakshita: 8278626707</p>
       <p><i class="fas fa-envelope"></i> mun.sxcj.edu.in@gmail.com</p>
+      <p><i class="fas fa-map-marker-alt"></i> St. Xavier’s College, Jaipur</p>
     </div>
 
   </div>
@@ -312,7 +318,6 @@ section {
   <div class="footer-bottom">
     <p>© 2026 SXCJ MUN. All Rights Reserved.</p>
   </div>
-
 </footer>
 
 <script>
@@ -321,6 +326,7 @@ function toggleSidebar(){
   document.getElementById("overlay").classList.toggle("active");
 }
 
+/* COUNTDOWN */
 var countDownDate = new Date("May 15, 2026 00:00:00").getTime();
 
 setInterval(function(){
